@@ -20,35 +20,35 @@ En la segunda fase se incorporaron las **Policies**, en lila, que representan pr
 
 En la tercera fase se añadieron los **Read Models**, en verde, es decir la información que un actor necesita tener a la vista para poder decidir antes de emitir un comando.
 
-En la cuarta fase se agruparon los elementos alrededor de los **Aggregates**, en amarillo grande, identificando qué objeto del dominio es responsable de garantizar la consistencia de cada conjunto de reglas.
+En la cuarta fase se agruparon los elementos alrededor de los **Aggregates**, en rojo claro, identificando qué objeto del dominio es responsable de garantizar la consistencia de cada conjunto de reglas.
 
 **Modelo resultante**
 
-| Command | Actor | Domain Event | Policy que se dispara | Read Model consultado | Aggregate responsable |
+| Command | Actor | Domain Event | Triggered Policy | Consulted Read Model | Responsible Aggregate |
 |---|---|---|---|---|---|
-| Registrar animal | Administrador ganadero | Animal registrado | Ninguna | Hato actual, aretes en uso | Cattle |
-| Asignar collar a animal | Administrador ganadero | Collar vinculado al animal | Verificar límite del plan | Inventario de collares, límite del plan | IoTDevice |
-| Transmitir lectura | Cattle Band | Lectura biométrica capturada | Evaluar umbrales de la etapa productiva | Umbrales vigentes | TelemetryReading |
-| Sincronizar lote de lecturas | Edge Gateway | Lecturas sincronizadas | Reevaluar reglas no aplicadas en el borde | Estado de sincronización | TelemetryReading |
-| Ninguno, es automático | Sistema | Umbral de temperatura superado | Generar alerta si no existe una abierta del mismo tipo | Alertas abiertas del animal | MonitoringAlert |
-| Ninguno, es automático | Sistema | Animal fuera de la zona de pastoreo | Generar alerta de seguridad con distancia al límite | Geocerca del lote | MonitoringAlert |
-| Ninguno, es automático | Sistema | Patrón reproductivo detectado | Registrar indicador de posible celo | Línea base del animal | MonitoringAlert |
-| Atender alerta | Administrador ganadero | Alerta atendida | Registrar tiempo de respuesta e incorporar hallazgo al historial | Detalle de la alerta y telemetría asociada | MonitoringAlert |
-| Registrar evento de campo | Operario de campo | Evento de salud registrado | Encolar para sincronización si no hay cobertura | Ficha descargada del animal | LivestockOperation |
-| Registrar intervención clínica | Médico veterinario | Intervención registrada | Iniciar periodo de retiro del producto aplicado | Antecedentes clínicos y retiros vigentes | LivestockOperation |
-| Ninguno, es automático | Sistema | Plazo de respuesta al tratamiento vencido | Alertar al veterinario si las constantes no retornan al rango | Evolución posterior a la intervención | MonitoringAlert |
-| Programar campaña sanitaria | Administrador ganadero | Campaña programada | Detectar superposición con periodos de retiro | Calendario del predio, retiros vigentes | HealthCampaign |
-| Ninguno, es automático | Sistema | Plazo de aviso alcanzado | Emitir recordatorio de campaña | Campañas programadas y su avance | HealthCampaign |
-| Registrar aplicación | Operario de campo | Aplicación registrada | Cerrar campaña cuando todos los animales figuran aplicados | Avance de la campaña | HealthCampaign |
-| Contratar plan | Administrador ganadero | Suscripción activada | Habilitar funcionalidades y límite de dispositivos del plan | Planes disponibles y su cobertura | Subscription |
-| Solicitar acceso a un hato | Médico veterinario | Asesoría solicitada | Notificar al administrador para su decisión | Perfil profesional del solicitante | HerdAdvisory |
-| Conceder acceso | Administrador ganadero | Asesoría concedida | Habilitar consulta acotada al hato concedido | Solicitudes pendientes | HerdAdvisory |
-| Dar de baja animal | Administrador ganadero | Animal dado de baja | Liberar el collar asignado y excluirlo de los indicadores | Ficha del animal, collar asignado | Cattle |
-| Ninguno, es automático | Sistema | Temperatura del agua fuera de rango | Activar calentamiento y alertar si no retorna al rango | Rango configurado del abrevadero | MonitoringAlert |
+| Register animal | Livestock administrator | Animal registered | None | Current herd, ear tags in use | Cattle |
+| Assign collar to animal | Livestock administrator | Collar linked to animal | Check plan limit | Collar inventory, plan limit | IoTDevice |
+| Transmit reading | Cattle Band | Biometric reading captured | Evaluate thresholds for the production stage | Current thresholds | TelemetryReading |
+| Synchronize reading batch | Edge Gateway | Readings synchronized | Re-evaluate rules not applied at the edge | Synchronization status | TelemetryReading |
+| None (automatic) | System | Temperature threshold exceeded | Generate an alert if no alert of the same type is open | Open alerts for the animal | MonitoringAlert |
+| None (automatic) | System | Animal outside grazing zone | Generate a security alert with distance to the boundary | Lot geofence | MonitoringAlert |
+| None (automatic) | System | Reproductive pattern detected | Record a possible estrus indicator | Animal baseline | MonitoringAlert |
+| Respond to alert | Livestock administrator | Alert addressed | Record response time and add the finding to the history | Alert details and associated telemetry | MonitoringAlert |
+| Record field event | Field operator | Health event recorded | Queue for synchronization when coverage is unavailable | Downloaded animal record | LivestockOperation |
+| Record clinical intervention | Veterinarian | Intervention recorded | Start the withdrawal period for the administered product | Clinical history and active withdrawal periods | LivestockOperation |
+| None (automatic) | System | Treatment response deadline reached | Alert the veterinarian if vital signs do not return to range | Post-intervention progress | MonitoringAlert |
+| Schedule health campaign | Livestock administrator | Campaign scheduled | Detect overlap with withdrawal periods | Farm calendar, active withdrawal periods | HealthCampaign |
+| None (automatic) | System | Reminder time reached | Issue campaign reminder | Scheduled campaigns and application progress | HealthCampaign |
+| Record application | Field operator | Application recorded | Close campaign when all animals have received the application | Campaign progress | HealthCampaign |
+| Subscribe to plan | Livestock administrator | Subscription activated | Enable plan features and device limit | Available plans and coverage | Subscription |
+| Request access to a herd | Veterinarian | Advisory access requested | Notify the administrator for a decision | Applicant professional profile | HerdAdvisory |
+| Grant access | Livestock administrator | Advisory access granted | Enable access restricted to the authorized herd | Pending requests | HerdAdvisory |
+| Deregister animal | Livestock administrator | Animal deregistered | Release the assigned collar and exclude the animal from indicators | Animal record, assigned collar | Cattle |
+| None (automatic) | System | Water temperature out of range | Activate heating and alert if the temperature does not return to range | Configured water trough temperature range | MonitoringAlert |
 
-![Design-Level EventStorming de SmartFarm](assets/images/diagrams/design-level-eventstorming.png)
+![SmartFarm Design-Level EventStorming: commands, actors, domain events, policies, read models and aggregates](assets/images/diagrams/design-level-eventstorming.png)
 
-*Figura 4.1.1. Design-Level EventStorming de SmartFarm: comandos, actores, Domain Events, Policies, Aggregates y Read Models. Elaboración propia.*
+*Figura 4.1.1. Design-Level EventStorming de SmartFarm en inglés: Commands, Actors, Domain Events, Policies, Aggregates y Read Models. Elaboración propia.*
 
 Abrir tablero Miro del Design-Level EventStorming ([https://tinyurl.com/25yajtgr](https://tinyurl.com/25yajtgr))
 
