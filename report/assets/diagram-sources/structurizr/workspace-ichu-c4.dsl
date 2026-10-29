@@ -57,10 +57,10 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         ichu = softwareSystem "ICHU" {
             description "Livestock management IoT platform"
 
-            landingPageClient = container "Landing Page Browser Client" {
-                technology "HTML + CSS + JavaScript"
-                description "Renders the public website in the customer's browser"
-                tags "BrowserClient"
+            landingPageUxUi = container "Landing Page - UX/UI" {
+                technology "HTML + CSS"
+                description "Customer-visible layout and styles of the public landing page, rendered in the browser"
+                tags "LandingPageUxUi"
             }
 
             webApplicationHosting = container "Web Application Hosting" {
@@ -69,10 +69,10 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
                 tags "StaticHosting"
             }
 
-            landingPage = container "Landing Page" {
-                technology "HTML + CSS + JavaScript"
-                description "Hosts the public website files, value proposition and plans"
-                tags "StaticHosting"
+            landingPageWebApplication = container "Landing Page - Web Application" {
+                technology "Angular + JavaScript"
+                description "Interactive logic for the public landing page, delivered as a static bundle and executed in the browser"
+                tags "LandingPageWebApplication"
             }
 
             webApplication = container "Web Application" {
@@ -408,7 +408,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
 
         ichu -> paymentProvider "Processes subscription payments"
 
-        visitor -> landingPageClient "Browses the public website" "HTTPS"
+        visitor -> landingPageUxUi "Browses the public website" "HTTPS"
 
         ranchManager -> webApplication "Manages cattle and reviews indicators" "HTTPS"
         ranchManager -> mobileApplication "Reviews cattle and receives alerts" "HTTPS"
@@ -424,11 +424,11 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         webApplication -> mapProvider "Displays positions and geofences" "HTTPS"
         mobileApplication -> mapProvider "Displays positions and geofences" "HTTPS"
 
-        landingPageClient -> landingPage "Downloads public website files" "HTTPS"
+        landingPageUxUi -> landingPageWebApplication "Uses landing-page interactions and dynamic content" "Browser / HTTPS"
         webApplication -> webApplicationHosting "Downloads the Angular SPA bundle" "HTTPS"
-        landingPageClient -> webApplicationHosting "Opens the application URL" "HTTPS"
+        landingPageUxUi -> webApplicationHosting "Opens the application URL" "HTTPS"
 
-        landingPageClient -> backend "Requests plans and public content" "HTTPS / JSON"
+        landingPageWebApplication -> backend "Requests plans and public content" "HTTPS / JSON"
         webApplication -> backend "Calls the REST API" "HTTPS / JSON"
         mobileApplication -> backend "Calls the REST API" "HTTPS / JSON"
 
@@ -548,7 +548,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             deploymentNode "User Computer" {
                 deploymentNode "Web Browser" {
                     technology "HTML, CSS and JavaScript execution"
-                    containerInstance landingPageClient
+                    containerInstance landingPageUxUi
                     containerInstance webApplication
                 }
             }
@@ -556,7 +556,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             deploymentNode "Cloud Platform" {
                 deploymentNode "Landing Page Web Hosting" {
                     technology "HTTPS static file hosting"
-                    containerInstance landingPage
+                    containerInstance landingPageWebApplication
                 }
                 deploymentNode "Angular Application Web Hosting" {
                     technology "HTTPS static file hosting"
@@ -828,6 +828,18 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
 
             element "BrowserClient" {
                 shape WebBrowser
+            }
+
+            element "LandingPageUxUi" {
+                shape WebBrowser
+                background #3a86ff
+                color #ffffff
+            }
+
+            element "LandingPageWebApplication" {
+                shape Component
+                background #6a4c93
+                color #ffffff
             }
 
             element "StaticHosting" {
