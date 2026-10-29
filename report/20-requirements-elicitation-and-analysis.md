@@ -187,48 +187,48 @@ Los resúmenes siguientes registran actividades, problemas, dispositivos y neces
 
 ##### Entrevista 1
 
-> **Entrevistado:** Próspero Contreras Flores
-> **Cargo/Rol:** Ganadero, propietario de predio ganadero
-> **Ubicación:** Región Apurímac, Perú
-> **Duración:** 00:22:45
-> **Entrevistador:** Flor Contreras
-
-![Entrevista a Próspero Contreras Flores](assets/images/entrevista-segmento1-prospero-contreras.png)
-
-> **Video: (Inicio: 0:01)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
-
-> **Resumen:**
-> La entrevista realizada a Próspero Contreras Flores, ganadero ubicado en la región de Apurímac, describe la dinámica operativa y los desafíos clave en la gestión de un predio con aproximadamente 100 cabezas de ganado bajo un régimen de pastoreo extensivo. Actualmente, la administración del inventario y el registro de eventos de salud se realizan de forma rudimentaria mediante hojas de cálculo en Excel y cuadernos de notas, lo que genera vacíos significativos en la trazabilidad médica individual del hato y propicia pérdidas económicas por partos prematuros no supervisados y casos de abigeato (robo de ganado). La infraestructura local presenta una cobertura de internet intermitente (aproximadamente 50% de señal en los potreros), por lo que el productor requiere una herramienta digital multidispositivo (smartphone en campo y laptop en oficina) con capacidad de almacenamiento offline. La solución ideal demandada debe centralizar las fichas clínicas individuales, emitir notificaciones preventivas ajustadas al calendario sanitario andino (vacunación contra carbúnculo, desparasitación), predecir eventos reproductivos (detección de celos y proximidad de partos) y consolidar reportes administrativos de costos y mortalidad bajo un modelo de suscripción anual.
-
-##### Entrevista 2
-
-> **Entrevistado:** Meikoll Morell Bosa Cárdenas
-> **Cargo/Rol:** Ingeniero zootecnista, propietario de la Hacienda del Marqués
-> **Ubicación:** Pampa de Anta, Cusco, Perú
-> **Duración:** 00:15:17
-> **Entrevistador:** Flor Contreras
-
-![Entrevista a Meikoll Morell Bosa Cárdenas](assets/images/entrevista-segmento1-meikoll-morell.png)
-
-> **Video: (Inicio: 6:01)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
-
-> **Resumen:**
-> El ingeniero zootecnista Meikoll Morell Bosa Cárdenas, propietario de la Hacienda del Marqués en Pampa de Anta (Cusco), maneja 40 cabezas de ganado Brown Swiss bajo un régimen semi-extensivo, 20 toros en engorde intensivo y caballos peruanos de paso. Su principal canal de control actual consiste en fichas individuales ingresadas en Excel desde su laptop y smartphone, pero identifica que el mayor problema en su gestión es la falta de hábito para registrar las intervenciones inmediatamente después del trabajo de campo, lo que deriva en pérdida de historial clínico y de trazabilidad. Respecto a pérdidas económicas, señala eventos de negligencia en partos y accidentes en equinos, además de vulnerabilidad ante el abigeato, donde la geolocalización por microchip ha fallado por falta de señal en zonas rurales. Para optimizar su toma de decisiones, Meikoll muestra interés en adoptar una solución de software bajo suscripción anual, priorizando que funcione desde el teléfono en modo offline para actualizar datos automáticamente al recuperar conexión. Entre las funciones clave que exige destacan las notificaciones automáticas para campañas sanitarias (dosificación, vacunas y vitaminas), alertas sobre el tiempo y peso estimado en ganadería de engorde, módulos de control de costos por alimento y medicinas por cabeza para evaluar la rentabilidad de los ciclos trimestrales, y la capacidad de adjuntar fotografías de los animales como evidencia del estado físico y respaldo ante robos.
-
-##### Entrevista 3
-
 > **Entrevistado:** Grober Barrientos Talaverano
 > **Cargo/Rol:** Médico veterinario zootecnista, encargado de la asistencia técnica en sanidad, manejo, alimentación y registros
 > **Ubicación:** Fundo Agropecuario Yavi Yavi, Cusco, Perú
-> **Duración:** 00:23:02
+> **Duración:** 00:06:00
 > **Entrevistador:** Flor Contreras
 
 ![Entrevista a Grober Barrientos Talaverano](assets/images/entrevista-segmento1-grober-barrientos.png)
 
-> **Video: (Inicio: 12:43)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
+> **Video: (Inicio: 00:01)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
 
 > **Resumen:**
-> Grober Barrientos Talaverano, un médico veterinario zootecnista de 34 años. Grober trabaja en el Fundo Agropecuario Yavi Yavi (Cusco), donde se encarga de brindar asistencia técnica en sanidad, manejo, alimentación y registros de ganado. Durante la charla, Grober explicó que manejan animales criollos, cruzados y un lote de 65 cabezas productoras de leche (Brown Swiss y Fleckvieh). Actualmente utiliza Excel en su computadora para llevar sus registros, aunque enfrenta problemas de conectividad intermitente en la zona de pastoreo. Indicó que la principal causa de mortalidad bovina en su zona es el mal de altura en terneros, cuyos primeros signos suelen evidenciarse en la reducción del movimiento y del tiempo de pastoreo. Por ello, destacó que le sería de gran utilidad una plataforma o sistema que registre y alerte sobre variaciones en las constantes fisiológicas (temperatura, frecuencias) y patrones de desplazamiento, además de permitir el filtrado por categorías, el control de costos e inventario y la generación de reportes e historiales de salud, sanidad y reproducción en tiempo real.
+> Grober Barrientos Talaverano, un médico veterinario zootecnista de 34 años. Grober trabaja en el Fundo Agropecuario Yavi Yavi (Cusco), donde se encarga de brindar asistencia técnica en sanidad, manejo, alimentación y registros de ganado. Grober refleja una personalidad bastante asertiva y serena, además de un conocimiento técnico profundo que le claridad respecto a lo que busca en un sistema de monitoreo para el ganado. Durante la charla, Grober explicó que manejan animales criollos, cruzados y un lote de 65 cabezas productoras de leche (Brown Swiss y Fleckvieh). Actualmente utiliza herramientas de gestión como Excel en su computadora para llevar sus registros, aunque enfrenta problemas de conectividad intermitente en la zona de pastoreo. Indicó que la principal causa de mortalidad bovina en su zona es el mal de altura en terneros, cuyos primeros signos suelen evidenciarse en la reducción del movimiento y del tiempo de pastoreo. Por ello, destacó que le sería de gran utilidad una plataforma o sistema que registre y alerte sobre variaciones en las constantes fisiológicas (temperatura, frecuencias) y patrones de desplazamiento, además de permitir el filtrado por categorías, el control de costos e inventario y la generación de reportes e historiales de salud, sanidad y reproducción en tiempo real.
+
+##### Entrevista 2
+
+> **Entrevistado:** Próspero Contreras Flores
+> **Cargo/Rol:** Ganadero, propietario de predio ganadero
+> **Ubicación:** Región Apurímac, Perú
+> **Duración:** 00:06:41
+> **Entrevistador:** Flor Contreras
+
+![Entrevista a Próspero Contreras Flores](assets/images/entrevista-segmento1-prospero-contreras.png)
+
+> **Video: (Inicio: 06:01)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
+
+> **Resumen:**
+> La entrevista realizada a Próspero Contreras Flores, ganadero ubicado en la región de Apurímac, describe la dinámica operativa y los desafíos clave en la gestión de un predio con aproximadamente 100 cabezas de ganado bajo un régimen de pastoreo extensivo. Próspero es un hombre con bastantes años de experiencia y muestra una actitud reflexiva sobre la importancia de la tecnología en la gestión ganadera. Su tono de voz expresa bastante calma y disposición a señalar los aspectos de mejora en este rubro con el uso de una herramienta de gestión adecuada. Actualmente, la administración del inventario y el registro de eventos de salud se realizan de forma rudimentaria mediante hojas de cálculo en Excel y cuadernos de notas, lo que genera vacíos significativos en la trazabilidad médica individual del hato y propicia pérdidas económicas por partos prematuros no supervisados y casos de abigeato (robo de ganado). La infraestructura local presenta una cobertura de internet intermitente (aproximadamente 50% de señal en los potreros), por lo que el productor requiere una herramienta digital multidispositivo (smartphone en campo y laptop en oficina) con capacidad de almacenamiento offline. La solución ideal demandada debe centralizar las fichas clínicas individuales, emitir notificaciones preventivas ajustadas al calendario sanitario andino (vacunación contra carbúnculo, desparasitación), predecir eventos reproductivos (detección de celos y proximidad de partos) y consolidar reportes administrativos de costos y mortalidad bajo un modelo de suscripción anual.
+
+##### Entrevista 3
+
+> **Entrevistado:** Meikoll Morell Bosa Cárdenas
+> **Cargo/Rol:** Ingeniero zootecnista, propietario de la Hacienda del Marqués
+> **Ubicación:** Pampa de Anta, Cusco, Perú
+> **Duración:** 00:05:24
+> **Entrevistador:** Flor Contreras
+
+![Entrevista a Meikoll Morell Bosa Cárdenas](assets/images/entrevista-segmento1-meikoll-morell.png)
+
+> **Video: (Inicio: 12:42)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
+
+> **Resumen:**
+> El ingeniero zootecnista Meikoll Morell Bosa Cárdenas, propietario de la Hacienda del Marqués en Pampa de Anta (Cusco), maneja 40 cabezas de ganado Brown Swiss bajo un régimen semi-extensivo, 20 toros en engorde intensivo y caballos peruanos de paso. Meikoll es un profesional con un carácter bastante energico y elocuente, cuenta con amplio conocimiento en el área. Durante la entrevista mostró adoptar el lenguaje técnico adecuado de su rubro lo que facilitó el registro de preguntas. Su principal canal de control actual consiste en fichas individuales ingresadas en Excel desde su laptop y smartphone, pero identifica que el mayor problema en su gestión es la falta de hábito para registrar las intervenciones inmediatamente después del trabajo de campo, lo que deriva en pérdida de historial clínico y de trazabilidad. Respecto a pérdidas económicas, señala eventos de negligencia en partos y accidentes en equinos, además de vulnerabilidad ante el abigeato, donde la geolocalización por microchip ha fallado por falta de señal en zonas rurales. Para optimizar su toma de decisiones, Meikoll muestra interés en adoptar una solución de software bajo suscripción anual, priorizando que funcione desde el teléfono en modo offline para actualizar datos automáticamente al recuperar conexión. Entre las funciones clave que exige destacan las notificaciones automáticas para campañas sanitarias (dosificación, vacunas y vitaminas), alertas sobre el tiempo y peso estimado en ganadería de engorde, módulos de control de costos por alimento y medicinas por cabeza para evaluar la rentabilidad de los ciclos trimestrales, y la capacidad de adjuntar fotografías de los animales como evidencia del estado físico y respaldo ante robos.
 
 #### Segmento 2: Zootecnistas y Médicos Veterinarios
 
@@ -260,7 +260,7 @@ Los resúmenes siguientes registran actividades, problemas, dispositivos y neces
 > **Video: (Inicio: 24:01)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
 
 > **Resumen:**
-> La entrevista expone la rutina laboral y las necesidades tecnológicas de Eliseo Ramírez Mena, bachiller en Medicina Veterinaria y Zootecnia con más de dos años de experiencia en el manejo de ganado vacuno y ovino. Su jornada diaria distribuye la mañana en labores de campo con los animales y la tarde en trabajo de oficina, registro de datos en computadora e impresión de informes para clientes. En el aspecto sanitario y reproductivo, Eliseo enfatiza que los tratamientos dependen del diagnóstico clínico observable, como la variación de temperatura, el apetito, la alteración de rumiación o conductas en celo, y del apoyo de colegas en casos complejos, así como del uso de intervenciones inmediatas ante emergencias metabólicas como el timpanismo gaseoso. Frente a la propuesta de un software y una aplicación móvil veterinaria, el especialista prioriza la utilidad de sincronizar imágenes de ecógrafos para evaluar la gestación en tiempo real desde el celular, la emisión de alertas rojas automáticas cuando decaen las constantes vitales del animal, la automatización de reportes ejecutivos para sustituir el llenado manual en Excel, y la integración de módulos nutricionales que identifiquen deficiencias minerales o de nutrientes en la dieta del ganado.
+> La entrevista expone la rutina laboral y las necesidades tecnológicas de Eliseo Ramírez Mena, bachiller en Medicina Veterinaria y Zootecnia con dos años de experiencia en el manejo de ganado vacuno y ovino. Eliseo muestra una base sólida de conocimiento respecto a los parámetros de salud y reproductividad deñ ganado. Como alguien con pronto ingreso en el campo de la medicina veterinario, muchos aspectos de su rutina requieren el manejo de aplicaciones en su teléfono inteligente, lo que prueba un manejo eficiente del mismo. Su jornada diaria distribuye la mañana en labores de campo con los animales y la tarde en trabajo de oficina, registro de datos en computadora e impresión de informes para clientes. En el aspecto sanitario y reproductivo, Eliseo enfatiza que los tratamientos dependen del diagnóstico clínico observable, como la variación de temperatura, el apetito, la alteración de rumiación o conductas en celo, y del apoyo de colegas en casos complejos, así como del uso de intervenciones inmediatas ante emergencias metabólicas como el timpanismo gaseoso. Frente a la propuesta de un software y una aplicación móvil veterinaria, el especialista prioriza la utilidad de sincronizar imágenes de ecógrafos para evaluar la gestación en tiempo real desde el celular, la emisión de alertas rojas automáticas cuando decaen las constantes vitales del animal, la automatización de reportes ejecutivos para sustituir el llenado manual en Excel, y la integración de módulos nutricionales que identifiquen deficiencias minerales o de nutrientes en la dieta del ganado.
 
 ##### Entrevista 3
 
@@ -275,7 +275,7 @@ Los resúmenes siguientes registran actividades, problemas, dispositivos y neces
 > **Video: (Inicio: 29:32)** ver segmento en SharePoint ([https://tinyurl.com/22n54ovz](https://tinyurl.com/22n54ovz))
 
 > **Resumen:**
-> Esta entrevista explora las necesidades operativas y tecnológicas de Dionisio Rodríguez, zootecnista chileno con trabajo de campo en Perú, para guiar el desarrollo de la plataforma ganadera ICHU de SmartFarm. Rodríguez explica que pasa la mayor parte de su jornada en el terreno registrando datos y fotos en su teléfono inteligente, reservando la computadora de oficina para la elaboración de informes. Para la detección temprana de enfermedades metabólicas o infecciosas y la identificación de celos silenciosos, fundamenta su diagnóstico en el seguimiento continuo de la temperatura corporal, la inactividad, la disminución de la rumia y los cambios de conducta, recurriendo a exámenes de laboratorio solo en casos complejos. En cuanto al diseño de la plataforma, solicita alertas automáticas ante fiebres o partos, reportes exportables a Excel o PDF, e integración directa con equipos de campo como ecógrafos portátiles y software de nutrición para evitar la duplicidad en el registro de información.
+> Esta entrevista explora las necesidades operativas y tecnológicas de Dionisio Rodríguez, zootecnista chileno con trabajo de campo en Perú, para guiar el desarrollo de la plataforma ganadera ICHU de SmartFarm. Indica que lleva unos pocos años ejerciendo como zootecnista a partir de su pasión por los animales y su reproducción. Rodríguez explica que pasa la mayor parte de su jornada en el terreno registrando datos y fotos en su teléfono inteligente, reservando la computadora de oficina para la elaboración de informes. Para la detección temprana de enfermedades metabólicas o infecciosas y la identificación de celos silenciosos, fundamenta su diagnóstico en el seguimiento continuo de la temperatura corporal, la inactividad, la disminución de la rumia y los cambios de conducta, recurriendo a exámenes de laboratorio solo en casos complejos. En cuanto al diseño de la plataforma, solicita alertas automáticas ante fiebres o partos, reportes exportables a Excel o PDF, e integración directa con equipos de campo como ecógrafos portátiles y software de nutrición para evitar la duplicidad en el registro de información.
 
 **Trazabilidad de los dispositivos y herramientas hacia las User Personas**
 
