@@ -477,39 +477,112 @@ Estos límites también se aplican a la lectura de los Empathy Maps de 2.3.4: ni
 
 ### 2.3.2. User Task Matrix.
 
-El User Task Matrix concentra las tareas que cada arquetipo ejecuta para cumplir sus objetivos. Se trata de actividades que ambos segmentos realizan hoy con independencia de que exista una solución de software, por lo que no deben confundirse con funcionalidades del sistema. Las tareas se identificaron a partir de las descripciones de jornada recogidas en las seis entrevistas.
+La User Task Matrix compara las actividades actuales de **Cesar Flores**, administrador ganadero del Segmento 1, y **Leonardo Rosales**, médico veterinario del Segmento 2. Las tareas sintetizan las jornadas descritas en las seis entrevistas y se expresan mediante una acción y su objeto de trabajo: inventario ganadero, identificación individual, evaluación sanitaria, atención clínica o control económico. Pueden ejecutarse mediante observación directa, registros de campo y hojas de cálculo, sin depender de ICHU.
 
-La frecuencia expresa con qué regularidad se ejecuta la tarea y la importancia expresa cuánto afecta al objetivo del arquetipo que la tarea se realice mal o no se realice. Ambas se valoran en tres niveles: alta, media y baja.
+La **frecuencia** indica la recurrencia de la actividad: alta, habitual; media, periódica o según el caso; baja, ocasional. La **importancia** expresa el impacto de omitirla o ejecutarla incorrectamente sobre los objetivos del arquetipo: alto, medio o bajo. Son valoraciones cualitativas de síntesis, no mediciones estadísticas. **No aplica** identifica una responsabilidad que no se atribuye a ese arquetipo en esta matriz; no equivale a importancia baja.
 
-| Tarea | Cesar Flores: frecuencia | Cesar Flores: importancia | Leonardo Rosales: frecuencia | Leonardo Rosales: importancia |
-|---|---|---|---|---|
-| Recorrer el potrero y contar las cabezas del hato | Alta | Alta | Baja | Baja |
-| Observar el comportamiento del animal para detectar anomalías | Alta | Alta | Alta | Alta |
-| Tomar constantes fisiológicas de un animal sospechoso | Media | Alta | Alta | Alta |
-| Registrar un evento sanitario o reproductivo | Media | Alta | Alta | Alta |
-| Consultar los antecedentes clínicos de un animal | Media | Alta | Alta | Alta |
-| Identificar individualmente a un animal por su arete | Alta | Media | Alta | Media |
-| Coordinar la visita de un profesional veterinario | Media | Alta | No aplica | No aplica |
-| Desplazarse entre predios para atender a distintos clientes | Baja | Baja | Alta | Alta |
-| Programar y ejecutar una campaña sanitaria | Baja | Alta | Media | Alta |
-| Aplicar un tratamiento o una inseminación | Baja | Alta | Alta | Alta |
-| Verificar el resultado de un tratamiento aplicado | Media | Alta | Alta | Alta |
-| Buscar un animal extraviado en el terreno | Baja | Alta | Baja | Baja |
-| Registrar costos de alimento, medicinas e insumos | Media | Alta | Baja | Media |
-| Elaborar reportes para sustentar decisiones | Baja | Media | Alta | Alta |
-| Consultar el calendario sanitario de la región | Baja | Media | Media | Alta |
-| Interpretar imágenes ecográficas de gestación | No aplica | No aplica | Media | Alta |
-| Evaluar la rentabilidad del ciclo productivo | Baja | Alta | Baja | Baja |
+<table>
+  <colgroup>
+    <col style="width: 40%;"/>
+    <col style="width: 15%;"/>
+    <col style="width: 15%;"/>
+    <col style="width: 15%;"/>
+    <col style="width: 15%;"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th rowspan="2" scope="col" align="left">Tarea del usuario</th>
+      <th colspan="2" scope="colgroup" align="center">Cesar Flores<br/>Administrador ganadero</th>
+      <th colspan="2" scope="colgroup" align="center">Leonardo Rosales<br/>Médico veterinario</th>
+    </tr>
+    <tr>
+      <th scope="col" align="center">Frecuencia</th>
+      <th scope="col" align="center">Importancia</th>
+      <th scope="col" align="center">Frecuencia</th>
+      <th scope="col" align="center">Importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" align="left">Conciliar el inventario ganadero mediante el conteo físico del hato en los potreros.</th>
+      <td align="center">Alta</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Evaluar signos conductuales de alteración sanitaria o reproductiva durante el pastoreo.</th>
+      <td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Medir las constantes fisiológicas de un animal con sospecha de alteración sanitaria.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Documentar eventos sanitarios y reproductivos con identificación del animal y fecha.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Revisar los antecedentes clínicos, sanitarios y reproductivos de un animal.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Verificar la identidad individual del bovino mediante su número de arete.</th>
+      <td align="center">Alta</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Media</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Coordinar la atención veterinaria según el caso y la disponibilidad del profesional.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">No aplica</td><td align="center">No aplica</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Organizar el desplazamiento entre unidades productivas para realizar atenciones veterinarias.</th>
+      <td align="center">Baja</td><td align="center">Baja</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Programar y ejecutar campañas de prevención sanitaria según el calendario del hato.</th>
+      <td align="center">Baja</td><td align="center">Alta</td><td align="center">Media</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Realizar intervenciones terapéuticas o procedimientos de inseminación según indicación veterinaria.</th>
+      <td align="center">Baja</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Evaluar la evolución clínica posterior a una intervención terapéutica.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Localizar un bovino extraviado mediante la inspección de las zonas de pastoreo.</th>
+      <td align="center">Baja</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Registrar los costos operativos de alimentación, medicamentos e insumos por ciclo productivo.</th>
+      <td align="center">Media</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Media</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Elaborar informes sanitarios o productivos para sustentar decisiones de manejo.</th>
+      <td align="center">Baja</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Verificar las fechas y pautas del calendario sanitario aplicable a la región.</th>
+      <td align="center">Baja</td><td align="center">Media</td><td align="center">Media</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Interpretar hallazgos ecográficos para evaluar el estado de gestación.</th>
+      <td align="center">No aplica</td><td align="center">No aplica</td><td align="center">Media</td><td align="center">Alta</td>
+    </tr>
+    <tr>
+      <th scope="row" align="left">Analizar los costos y resultados del ciclo productivo para estimar su rentabilidad.</th>
+      <td align="center">Baja</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td>
+    </tr>
+  </tbody>
+</table>
 
 **Lectura del cuadro**
 
-Las tareas de mayor frecuencia e importancia para Cesar Flores son el recorrido del potrero con el conteo de cabezas y la observación del comportamiento animal. Ambas son actividades de vigilancia que consumen buena parte de su jornada y cuyo resultado determina si un problema se detecta a tiempo. Le siguen en importancia, aunque con menor frecuencia, la coordinación de la visita veterinaria y la búsqueda de animales extraviados: son tareas esporádicas, pero cada ocurrencia tiene consecuencias económicas directas.
+Para **Cesar Flores**, la conciliación del inventario y la evaluación del comportamiento animal combinan frecuencia e importancia altas. La coordinación veterinaria, la localización de animales extraviados y el control económico conservan importancia alta, aunque su ejecución es periódica u ocasional.
 
-Para Leonardo Rosales, la concentración de frecuencia e importancia se desplaza hacia la consulta de antecedentes clínicos, la toma de constantes, la aplicación de tratamientos y la elaboración de reportes. Su jornada se reparte entre el trabajo de campo y el de oficina, y ambas mitades dependen de información que hoy está dispersa.
+Para **Leonardo Rosales**, destacan la medición de constantes, la revisión de antecedentes, las intervenciones terapéuticas, el seguimiento clínico y los informes sanitarios, todos con frecuencia e importancia altas. La interpretación ecográfica tiene frecuencia media e importancia alta y corresponde al ámbito profesional del arquetipo.
 
-La coincidencia más relevante entre ambos arquetipos está en la observación del comportamiento animal y en el registro de eventos: los dos ejecutan estas tareas con alta frecuencia e importancia, pero las registran en soportes distintos y sin conexión entre sí, lo que explica la duplicidad de información que ambos segmentos reportaron.
+La principal **coincidencia** es la evaluación del comportamiento animal, con frecuencia e importancia altas para ambos. Documentar eventos y revisar antecedentes también tiene importancia alta en los dos perfiles, pero su frecuencia es media para Cesar y alta para Leonardo. La identificación por arete es frecuente en ambos y tiene importancia media en esta valoración.
 
-La diferencia más marcada está en el alcance geográfico. Cesar Flores concentra todas sus tareas en una sola unidad productiva, mientras que Leonardo Rosales se desplaza entre varios predios, lo que convierte la portabilidad de la información en una necesidad exclusiva del Segmento 2. Una segunda diferencia es el eje económico: la evaluación de rentabilidad y el control de costos son tareas propias del administrador y resultan marginales para el profesional veterinario.
+Las **diferencias** se concentran en la responsabilidad operativa: Cesar prioriza inventario, costos y rentabilidad; Leonardo, atención clínica, informes y desplazamiento entre predios. La información de campo debe acompañar el trabajo de ambos perfiles; la movilidad entre unidades productivas tiene mayor peso para el veterinario, pero no convierte la portabilidad en una necesidad exclusiva de ese segmento.
 
 ### 2.3.3. User Journey Mapping.
 
