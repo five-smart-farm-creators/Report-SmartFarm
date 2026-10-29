@@ -82,7 +82,7 @@ La consola registra seis ejecuciones de despliegue. En la captura, la más recie
 
 ### 6.2.1. Sprint 1
 
-El Capítulo III asigna trece historias al Sprint 1, con un total estimado de 47 puntos. Este capítulo usa esa asignación como **línea base del backlog planificado**; no la presenta como trabajo ya terminado ni como velocidad validada del equipo. El alcance asignado es una Landing Page bilingüe y accesible, junto con las funciones iniciales de acceso a la plataforma y gestión de la ficha del animal.
+El Capítulo III asigna ocho historias al Sprint 1, con un total estimado de 33 puntos: siete para la Landing Page y una para la primera versión del frontend web. Esta selección es la **línea base del backlog planificado**, no trabajo aceptado ni velocidad validada del equipo. Los recorridos de acceso, perfil y ficha del animal de US-58 utilizan datos de ejemplo y validación local; no completan las historias de autenticación, autorización, persistencia ni contratación real previstas para la integración posterior.
 
 #### 6.2.1.1. Sprint Planning 1
 
@@ -134,22 +134,22 @@ El Sprint 1 se orienta a presentar la propuesta de ICHU y habilitar los primeros
     </tr>
     <tr>
       <td>Sprint 1 Goal</td>
-      <td>Se presenta la primera version del landing page y la aplicación web, permitiendo a ganaderos y médicos veterinarios conocer ICHU, comparar planes, solicitar una demostración y recorrer los flujos iniciales de acceso, perfil y ficha del animal en la interfaz web.<br/><strong>Métrica de cumplimiento:</strong> las dos interfaces publicadas y navegables, y cobertura de los criterios de aceptación de las 13 historias seleccionadas dentro del alcance frontend.</td>
+      <td>Publicar la primera versión de la Landing Page y del frontend web para conocer ICHU, comparar planes, solicitar una demostración y recorrer la experiencia inicial con datos de ejemplo.<br/><strong>Métrica de cumplimiento:</strong> ambas interfaces publicadas y navegables, con verificación de los criterios de las ocho historias seleccionadas, sin requerir backend, aplicación móvil nativa ni dispositivos conectados.</td>
     </tr>
     <tr>
       <td>Sprint 1 Velocity</td>
-      <td>47 Story Points como capacidad de planificación inicial, a contrastar con los puntos aceptados al cierre del Sprint.</td>
+      <td>33 Story Points propuestos para el alcance frontend. La capacidad real se contrasta con los puntos de las historias aceptadas al cierre; no se declara una velocidad observada.</td>
     </tr>
     <tr>
       <td>Sum of Story Points</td>
-      <td>47 Story Points distribuidos en 13 historias del Sprint Backlog 1.</td>
+      <td>33 Story Points distribuidos en ocho historias del Sprint Backlog 1.</td>
     </tr>
   </tbody>
 </table>
 
 #### 6.2.1.2. Aspect Leaders and Collaborators
 
-La siguiente distribución es una **planificación simulada** agregada en Jira. Las 22 tareas SF-96 a SF-117 llevan la etiqueta `simulado` y permanecen en estado **Por hacer**. Los nombres de la tabla son responsables propuestos, no evidencia de asignación ni de trabajo completado. En el proyecto, SF-96 es la única de estas tareas asignada a una cuenta de integrante; las demás siguen sin asignar. Al intentar añadir integrantes, Jira confirmó la incorporación de una cuenta existente y notificó dos solicitudes de acceso pendientes de aprobación administrativa. El aviso no identificó a quiénes corresponden esas solicitudes ni confirmó individualmente el estado de las otras dos cuentas. No se inició un sprint. Esta planificación no modifica las 13 historias ni los 47 puntos de la línea base del Sprint 1.
+La siguiente distribución es una **planificación transversal simulada** agregada en Jira. Las 22 tareas SF-96 a SF-117 llevan la etiqueta `simulado` y permanecen en estado **Por hacer**. Los nombres de la tabla son responsables propuestos, no evidencia de asignación ni de trabajo completado. En el proyecto, SF-96 es la única de estas tareas asignada a una cuenta de integrante; las demás siguen sin asignar. Al intentar añadir integrantes, Jira confirmó la incorporación de una cuenta existente y notificó dos solicitudes de acceso pendientes de aprobación administrativa. El aviso no identificó a quiénes corresponden esas solicitudes ni confirmó individualmente el estado de las otras dos cuentas. No se inició un sprint. Este conjunto no equivale al Sprint Backlog 1: la selección de implementación del Sprint 1 es de ocho historias y 33 SP; las tareas de APIs, Edge, integración móvil y hardware quedan fuera de ella.
 
 Consulta del conjunto de tareas en Jira: [https://tinyurl.com/2xs98v8n](https://tinyurl.com/2xs98v8n)
 
@@ -162,30 +162,25 @@ Consulta del conjunto de tareas en Jira: [https://tinyurl.com/2xs98v8n](https://
 | Awad Vargas, Giorgio Marzouk | SF-100 — correcciones de pruebas y despliegue; SF-108 — Subscription Plans; SF-111 — controlador de calentamiento del abrevadero; SF-115 — verificación de entornos y despliegues. |
 | Romero Meza, Jhimy Pool | SF-101 — correcciones de figuras; SF-104 — IoT Assets; SF-110 — prototipo conceptual del collar IoT; SF-117 — auditoría de criterios y evidencias de entrega. |
 
-Los siete Bounded Contexts de la arquitectura se reflejan como trabajo planificado del monolito modular; Portable Edge Gateway y los prototipos IoT se registran como tareas transversales. Las descripciones de Jira delimitan entregables propuestos y pruebas por ejecutar. Las capturas de diseño del Capítulo V no demuestran que los sensores, el Edge o las APIs estén implementados o conectados.
+Los siete Bounded Contexts de la arquitectura se reflejan como trabajo propuesto del monolito modular; Portable Edge Gateway y los prototipos IoT se registran como tareas transversales, no como implementación del Sprint 1. El diseño conceptual de dispositivos del Capítulo V se conserva como documentación de TB1 y no acredita sensores, Edge ni APIs implementados o conectados.
 
 #### 6.2.1.3. Sprint Backlog 1
 
-La tabla conserva el orden y la estimación de la priorización de historias del Capítulo III. La columna «Sprint» corresponde a la planificación documentada, no al estado actual de implementación.
+La tabla contiene únicamente las ocho historias seleccionadas del Product Backlog del Capítulo III, con el mismo orden y estimación. El resultado esperado se limita a la Landing Page y al primer frontend; no declara las historias como completadas ni acredita integración de servicios.
 
 | Prioridad | Historia | Resultado esperado | Puntos | Sprint asignado |
 |---:|---|---|---:|---|
-| 1 | US-32 — Conocer la propuesta de ICHU | Presentar el problema, la solución IoT, los beneficios por segmento y los productos digitales. | 3 | Sprint 1 |
-| 2 | US-33 — Acceder al destino correspondiente a mi segmento | Dirigir al visitante al producto digital o canal correspondiente. | 2 | Sprint 1 |
-| 3 | US-35 — Comparar los planes y estimar el costo | Presentar planes, límites de dispositivos y estimación según el tamaño del hato. | 5 | Sprint 1 |
-| 4 | US-34 — Solicitar una demostración | Registrar la solicitud con el segmento y contexto productivo del visitante. | 3 | Sprint 1 |
-| 5 | US-36 — Consultar los términos y condiciones del servicio | Exponer condiciones de uso y tratamiento de datos. | 2 | Sprint 1 |
-| 6 | US-06 — Registrar un animal en el hato | Incorporar identificación y datos productivos del animal. | 5 | Sprint 1 |
-| 26 | US-07 — Consultar la ficha de un animal | Mostrar identificación, etapa productiva, collar asignado y última lectura. | 3 | Sprint 1 |
-| 27 | US-01 — Registrar una cuenta de unidad productiva | Crear la cuenta con ubicación y escala de la unidad. | 3 | Sprint 1 |
-| 28 | US-02 — Acceder a la plataforma | Iniciar sesión según rol y alcance de las unidades productivas. | 3 | Sprint 1 |
-| 29 | US-04 — Autorizar a un médico veterinario sobre el hato | Conceder acceso temporal y acotado a la unidad productiva. | 5 | Sprint 1 |
-| 51 | US-37 — Consultar la experiencia en mi idioma | Presentar la experiencia en inglés o español y conservar la preferencia. | 5 | Sprint 1 |
-| 52 | US-38 — Acceder a la experiencia con tecnología de asistencia | Proveer nombres y funciones accesibles, alternativas textuales y recorrido por teclado. | 5 | Sprint 1 |
-| 63 | US-03 — Completar el perfil profesional | Registrar especialidad, colegiatura y experiencia del médico veterinario. | 3 | Sprint 1 |
-|  | **Total planificado** |  | **47** |  |
+| 1 | US-32 — Conocer la propuesta de ICHU | Presentar la propuesta, los beneficios por segmento y los productos digitales. | 3 | Sprint 1 |
+| 2 | US-33 — Acceder al destino correspondiente a mi segmento | Dirigir al registro o acceso del segmento y conservar la selección de plan, sin crear una cuenta ni activar permisos. | 2 | Sprint 1 |
+| 3 | US-35 — Comparar los planes y estimar el costo | Comparar planes y calcular una estimación informativa con valores publicados y validación local; sin cobro ni contratación. | 5 | Sprint 1 |
+| 4 | US-36 — Consultar los términos y condiciones del servicio | Publicar condiciones de uso, tratamiento de datos y fecha de actualización. | 2 | Sprint 1 |
+| 5 | US-59 — Solicitar una demostración desde la Landing Page | Validar los datos en el navegador y preparar la solicitud en el canal de contacto; el usuario decide enviarla. | 3 | Sprint 1 |
+| 6 | US-37 — Consultar la experiencia en mi idioma | Presentar el contenido en inglés o español latinoamericano y conservar la preferencia. | 5 | Sprint 1 |
+| 7 | US-38 — Acceder a la experiencia con tecnología de asistencia | Permitir el recorrido por teclado y lector de pantalla, con nombres y alternativas textuales accesibles. | 5 | Sprint 1 |
+| 8 | US-58 — Explorar la primera versión del frontend web | Ofrecer los recorridos iniciales del frontend web con datos de ejemplo y validación local, sin API ni dispositivos conectados. | 8 | Sprint 1 |
+|  | **Total planificado** |  | **33** |  |
 
-Fuente: archivo report/30-requirements-specification.md, sección Product Backlog y alcance comprometido y roadmap, Capítulo III.
+Fuente: Product Backlog y alcance por iteración y roadmap, Capítulo III.
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
@@ -263,7 +258,7 @@ La evidencia disponible muestra coordinación mediante cambios versionados, desp
 
 El plan documentado no fija las fechas oficiales ni la duración del Sprint 1. Por ello, estos commits y el deployment se presentan como evidencia de colaboración del proyecto, sin afirmar que ocurrieron dentro de un Sprint con fechas confirmadas.
 
-La distribución de 22 tareas SF-96 a SF-117 en Jira es simulada: las tareas siguen como **Por hacer** y los responsables de la tabla de 6.2.1.2 son propuestos. Por tanto, esa planificación no prueba que las tareas hayan sido completadas por esas personas. Tampoco hay actas o registros que acrediten reuniones diarias, una Sprint Review formal o una retrospectiva; no se reportan como celebradas.
+La distribución transversal de 22 tareas SF-96 a SF-117 en Jira es simulada y no equivale a las ocho historias seleccionadas para Sprint 1: las tareas siguen como **Por hacer** y los responsables de la tabla de 6.2.1.2 son propuestos. Por tanto, esa planificación no prueba que las tareas hayan sido completadas por esas personas. Tampoco hay actas o registros que acrediten reuniones diarias, una Sprint Review formal o una retrospectiva; no se reportan como celebradas.
 
 | Evidencia | Aporte a la coordinación | Alcance de lo que demuestra |
 |---|---|---|

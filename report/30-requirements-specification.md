@@ -54,6 +54,7 @@ Los requisitos se organizan en doce Epics alineados con los Bounded Contexts def
 | Epic / Story ID | Título | Descripción | Criterios de aceptación | Relacionado con (Epic ID) |
 | --- | --- | --- | --- | --- |
 | EP-01 | Gestión de cuenta y acceso | Agrupa las capacidades de registro, autenticación y autorización de acceso de terceros sobre la información de un hato. | No aplica | No aplica |
+| US-58 | Explorar la primera versión del frontend web | Como ganadero o médico veterinario, deseo recorrer la primera versión de la aplicación web con datos de ejemplo, para evaluar los recorridos de trabajo antes de integrar los servicios del producto. | Given que la primera versión web está disponible con datos de ejemplo<br>When se recorre la experiencia del ganadero o del médico veterinario<br>Then se puede recorrer el acceso, el perfil profesional, el listado y la ficha del animal y los indicadores de muestra, sin depender de una API ni de dispositivos conectados.<br><br>Given que un formulario del recorrido requiere datos obligatorios<br>When se intenta continuar con datos incompletos o inválidos<br>Then la validación local informa qué debe corregirse y conserva los valores válidos ingresados.<br><br>Given que se consulta un animal o un indicador de ejemplo<br>When se presenta su información<br>Then el resultado corresponde al conjunto de muestra y no se presenta como una lectura real, una cuenta verificada ni una autorización concedida por un servidor. | EP-01 |
 | US-01 | Registrar una cuenta de unidad productiva | Como administrador ganadero, deseo registrar mi unidad productiva en ICHU, para gestionar mi hato desde la plataforma. | Given que el correo indicado no está asociado a ninguna cuenta<br>When se registra la unidad productiva con nombre, región, distrito y número estimado de cabezas<br>Then la cuenta queda creada en estado `pendiente de verificación` y se asocia al administrador como propietario de la unidad.<br><br>Given que el correo indicado ya está asociado a una cuenta existente<br>When se intenta registrar la unidad productiva<br>Then el registro no se crea y el sistema informa que el correo ya está en uso. | EP-01 |
 | US-02 | Acceder a la plataforma | Como usuario registrado, deseo acceder a la plataforma con mis credenciales, para operar sobre la información que me corresponde. | Given que las credenciales corresponden a una cuenta verificada<br>When se solicita el acceso<br>Then la sesión queda iniciada con el rol asociado a la cuenta y con el alcance de las unidades productivas a las que tiene acceso.<br><br>Given que se registran cinco intentos fallidos consecutivos sobre la misma cuenta<br>When se solicita un nuevo acceso<br>Then el sistema bloquea temporalmente la cuenta durante 15 minutos y registra el intento con su fecha y hora. | EP-01 |
 | US-03 | Completar el perfil profesional | Como médico veterinario, deseo completar mi perfil con mi especialidad, número de colegiatura y años de experiencia, para que los ganaderos que me autoricen conozcan mis credenciales. | Given que el perfil profesional está incompleto<br>When se registran especialidad, número de colegiatura y años de experiencia<br>Then el perfil pasa a estado `completo` y sus datos quedan disponibles para los administradores que evalúen autorizarlo.<br><br>Given que el número de colegiatura ya figura en otro perfil verificado<br>When se intenta guardar el perfil<br>Then el sistema rechaza el registro e indica la duplicidad del número de colegiatura. | EP-01 |
@@ -116,6 +117,7 @@ Los requisitos se organizan en doce Epics alineados con los Bounded Contexts def
 | US-36 | Consultar los términos y condiciones del servicio | Como visitante, deseo acceder a los términos y condiciones, para conocer las responsabilidades y las condiciones de uso antes de entregar mis datos. | Given que el visitante se encuentra en cualquier sección de la Landing Page<br>When consulta el pie de página<br>Then encuentra el acceso a los términos y condiciones del servicio.<br><br>Given que el visitante accede al documento<br>When este se presenta<br>Then incluye las condiciones de uso, el tratamiento de los datos recolectados por los dispositivos y la fecha de su última actualización. | EP-10 |
 | US-37 | Consultar la experiencia en mi idioma | Como visitante, deseo consultar el contenido en inglés o en español latinoamericano, para comprender la propuesta en el idioma que domino. | Given que la experiencia se presenta en inglés (en_US) de manera predeterminada<br>When el visitante selecciona el español latinoamericano (es_419)<br>Then la totalidad del contenido, incluidos los mensajes de error y los formatos de fecha y número, se presenta en es_419.<br><br>Given que el visitante seleccionó previamente un idioma<br>When regresa a la experiencia en una sesión posterior<br>Then el contenido se presenta en el idioma seleccionado anteriormente. | EP-10 |
 | US-38 | Acceder a la experiencia con tecnología de asistencia | Como visitante que utiliza un lector de pantalla, deseo recorrer la Landing Page y comprender su contenido, para evaluar la propuesta en igualdad de condiciones. | Given que la experiencia se recorre mediante un lector de pantalla<br>When se navega por sus secciones<br>Then cada sección expone su función y su nombre accesible, y el contenido no textual cuenta con una alternativa textual equivalente.<br><br>Given que la experiencia se recorre únicamente mediante el teclado<br>When se avanza por los elementos interactivos<br>Then todos resultan alcanzables en un orden coherente con la secuencia del contenido y el elemento con el foco es identificable. | EP-10 |
+| US-59 | Solicitar una demostración desde la Landing Page | Como visitante, deseo preparar una solicitud de demostración desde la Landing Page, para contactar al equipo sobre la solución adecuada para mi actividad. | Given que se proporcionan los datos de contacto y el segmento requeridos<br>When se solicita una demostración<br>Then se prepara el mensaje con esos datos y se abre el canal de contacto publicado; la persona decide si lo envía y no se registra una suscripción ni un pago.<br><br>Given que falta un dato obligatorio o su formato no es válido<br>When se intenta preparar la solicitud<br>Then la validación local informa el dato que debe corregirse sin abrir el canal ni perder los datos válidos.<br><br>Given que la persona decide no enviar el mensaje en el canal externo<br>When regresa a la Landing Page<br>Then no se informa una entrega confirmada ni un registro en un backend propio. | EP-10 |
 | EP-11 | Plataforma IoT e integración de servicios | Agrupa las capacidades técnicas necesarias para capturar, transmitir, validar, almacenar y distribuir la telemetría entre el dispositivo, el Edge Service y la API central. | No aplica | No aplica |
 | TS-01 | Capturar biometría y ubicación en el collar | Como Device Maker, necesito un contrato de captura del Cattle Band, para integrar sensores y entregar lecturas identificables al Portable Edge Gateway por BLE. | Given que el collar está operativo y se cumple el intervalo de muestreo<br>When el firmware conforma una lectura<br>Then genera `readingId` único, `deviceId`, `recordedAt` de captura en UTC, temperatura, actividad, posición, precisión GPS y batería, con unidades y validez por campo; el identificador no cambia durante los reintentos.<br><br>Given que un sensor falla o informa un valor fuera del rango admisible configurado<br>When se conforma la lectura<br>Then el campo se marca como inválido con su motivo; los campos válidos se conservan y no se sustituyen datos ausentes por cero.<br><br>Given que no hay Internet pero existe enlace BLE con el Gateway<br>When se transmite la lectura<br>Then el Gateway la recibe localmente; la captura y transmisión BLE no requieren conexión del collar a la API central. | EP-11 |
 | TS-02 | Operar el collar en modo de bajo consumo | Como Device Maker, necesito configurar el muestreo y la suspensión del Cattle Band, para reducir el consumo manteniendo la captura y transmisión local requeridas. | Given que la actividad indica reposo durante el periodo configurado<br>When el firmware aplica el perfil de ahorro<br>Then suspende los módulos que admite ese perfil y programa la siguiente captura mediante temporizador, conservando la cola de lecturas pendientes.<br><br>Given que el collar está suspendido<br>When vence el temporizador o se produce una interrupción de movimiento habilitada<br>Then reanuda la captura, evalúa los datos obtenidos y transmite por BLE cuando el enlace está disponible; no se presupone detectar temperatura o posición con esos sensores apagados.<br><br>Given que se propone un intervalo fuera de los límites de configuración<br>When se intenta aplicar el perfil<br>Then se conserva la última configuración válida y se registra el rechazo; no se declara una autonomía de batería sin medición. | EP-11 |
@@ -150,7 +152,7 @@ Los requisitos se organizan en doce Epics alineados con los Bounded Contexts def
 - Ningún criterio de aceptación hace referencia a controles, pantallas, colores ni gestos de interacción.
 - Las historias que admiten un flujo alternativo incluyen al menos un escenario de error o de excepción.
 - Las Technical Stories identifican al consumidor o sistema responsable. Los contratos HTTP especifican método, ruta, autorización y respuesta; los contratos embebidos o BLE especifican datos, confirmación y fallos sin inventar un endpoint HTTP en el collar.
-- Las historias de la Landing Page forman parte del alcance del primer sprint.
+- Las historias informativas y de contacto de la Landing Page forman parte del primer sprint; la contratación integrada de US-34 requiere servicios y se planifica después de TB1.
 - Las historias de internacionalización (US-37) y accesibilidad (US-38) cubren los requisitos de i18n y a11y exigidos para la Landing Page y las Web Applications.
 
 **Cobertura por User Persona**
@@ -162,18 +164,19 @@ Cada arquetipo de usuario cuenta con al menos 21 User Stories redactadas desde s
 | Administrador ganadero | Cesar Flores | Segmento 1 | 23 |
 | Médico veterinario | Leonardo Rosales | Segmento 2 | 22 |
 | Operario de campo | No aplica, es un rol operativo | Segmento 1 | 5 |
-| Visitante | No aplica, es el rol base del sitio web estático | No aplica | 6 |
+| Visitante | No aplica, es el rol base del sitio web estático | No aplica | 7 |
 | Usuario registrado | No aplica, es un rol transversal de acceso | No aplica | 1 |
+| Ganadero o médico veterinario | Ambos segmentos, recorrido inicial del frontend (US-58) | Segmentos 1 y 2 | 1 |
 | Actores técnicos | Device Maker, Portable Edge Gateway, Web Application, Mobile Application e ICHU Backend | No aplica | 19 |
 
 **Cobertura por producto digital**
 
-La cobertura es compartida: una historia puede habilitar más de un producto. Las 57 User Stories describen necesidades de personas; las 19 Technical Stories especifican contratos de dispositivos, Edge, Cloud y clientes. No se suman las filas siguientes para obtener el total.
+La cobertura es compartida: una historia puede habilitar más de un producto. Las 59 User Stories describen necesidades de personas; las 19 Technical Stories especifican contratos de dispositivos, Edge, Cloud y clientes. No se suman las filas siguientes para obtener el total.
 
 | Producto digital | User Stories relacionadas | Technical Stories habilitadoras |
 |---|---|---|
-| Landing Page | US-32 a US-38 | TS-10 (planes, estimación y continuación de la contratación en Web) |
-| Web Application | US-01 a US-19, US-23 a US-31, US-39 a US-54, US-57 | TS-08, TS-10, TS-14, TS-19 |
+| Landing Page | US-32 a US-38, US-59 | Ninguna API propia para la primera versión; TS-10 habilita la contratación integrada de US-34 en una iteración posterior. |
+| Web Application | US-01 a US-19, US-23 a US-31, US-39 a US-54, US-57, US-58 | US-58 no requiere backend; TS-08, TS-10, TS-14 y TS-19 habilitan la integración funcional posterior. |
 | Mobile Application | US-07, US-13, US-16, US-19 a US-22, US-27, US-40, US-47, US-54 a US-56 | TS-09, TS-14, TS-16, TS-17, TS-18 |
 | RESTful API central | Soporta acceso, suscripción, monitoreo, atención e indicadores | TS-06 a TS-12, TS-14, TS-15, TS-18, TS-19 |
 | Edge API / Portable Edge Gateway | US-13, US-16, US-17, US-19, US-20, US-54, US-56 | TS-04, TS-05, TS-06, TS-14, TS-15, TS-16, TS-17 |
@@ -183,6 +186,8 @@ La cobertura es compartida: una historia puede habilitar más de un producto. La
 
 | Necesidad | Contratos y dependencias |
 |---|---|
+| Primera experiencia web | US-58 ofrece recorridos con datos de ejemplo y validación local; no completa US-01, US-02, US-03, US-04, US-06 ni US-07 como capacidades integradas. |
+| Contacto para demostración | US-59 prepara el mensaje en el canal publicado y deja el envío a la persona; no requiere TS-10 ni registra una contratación. |
 | Contratar desde el sitio público | US-35 → US-34 → US-01 / US-02 → TS-10. Una solicitud pendiente no acredita cobro ni suscripción activa. |
 | Alertas sin Internet | US-10 y US-15 configuran asignaciones y geocercas; TS-15 las descarga; TS-01 / TS-04 / TS-05 capturan, reciben y evalúan; TS-16 permite consultar y atender alertas localmente. |
 | Monitoreo en móvil durante el pastoreo | TS-17 sirve datos locales; US-13 y US-20 indican origen y antigüedad. No se presupone cobertura cloud. |
@@ -298,20 +303,20 @@ El Product Backlog ordena las User Stories y Technical Stories según su valor p
 
 1. **Contribución a los Business Goals.** Se priorizan conversión a suscripción (BG-01), reducción propuesta del CAC (BG-03), valor operativo que puede favorecer la renovación (BG-02) y uso frecuente (BG-04). La mortalidad se mantiene como métrica de validación del usuario.
 2. **Habilitación del flujo de datos extremo a extremo.** Sin captura en el collar, recepción en el Edge y persistencia en la API central, ninguna capacidad de monitoreo, alerta o análisis puede entregarse. Esas Technical Stories se anticipan a las historias que dependen de ellas.
-3. **Alcance del primer sprint.** Las historias de la Landing Page se ubican al inicio, dado que el sitio web estático es el primer punto de contacto del modelo de negocio y debe estar disponible desde la primera iteración.
+3. **Alcance del primer sprint.** Se priorizan la primera Landing Page y los recorridos de la primera versión del frontend web. La autenticación real, las autorizaciones, la persistencia central, las suscripciones y las integraciones no forman parte de esta entrega.
 4. **Autorización y configuración preceden a sus consumidores.** Registro, acceso y suscripción se ubican antes de la contratación; asignaciones, geocercas y configuración local preceden a la evaluación offline. Los clientes Web y Mobile tienen contratos explícitos.
 5. **Capacidades de mantenimiento del inventario al final.** Las historias de actualización y baja del ganado o de administración del inventario de collares aportan valor una vez que existe información que mantener.
 
-La estimación emplea únicamente los valores 1, 2, 3, 5 y 8 Story Points. Las cifras revisadas son propuestas para Sprint Planning. US-34 pasa de 3 a 5 SP por la continuidad del registro y la confirmación de términos e importe; TS-09, TS-10 y TS-14 pasan de 5 a 8 SP por autorización, estados, versiones e idempotencia. TS-15 a TS-19 añaden los contratos de configuración y clientes; el total se recalcula a partir de las filas del backlog.
+La estimación emplea únicamente los valores 1, 2, 3, 5 y 8 Story Points. Las cifras son propuestas para Sprint Planning. US-58 estima en 8 SP los recorridos del frontend con datos de ejemplo y US-59 en 3 SP el contacto para solicitar una demostración. Estas historias no sustituyen los criterios funcionales de registro, autorización y contratación, que conservan sus identificadores y estimaciones para la integración posterior.
 
-**Alcance comprometido y roadmap**
+**Alcance por iteración y roadmap**
 
-La columna *Sprint previsto* distingue las historias que el equipo se compromete a implementar durante el ciclo de las que quedan registradas como evolución posterior del producto. Esta distribución es una propuesta de planificación que debe validarse en Sprint Planning con la velocidad y disponibilidad del equipo. No acredita tareas implementadas, aprobadas ni sprints cerrados; las historias del roadmap conservan su valor y trazabilidad.
+La columna *Sprint previsto* distingue la entrega frontend del Sprint 1, la integración funcional propuesta para las iteraciones siguientes y la evolución posterior del producto. La distribución debe validarse en Sprint Planning con la capacidad y disponibilidad del equipo. No acredita historias aceptadas ni sprints cerrados; una pantalla con datos de ejemplo no completa una historia que requiere seguridad, persistencia o integración real.
 
 El criterio de asignación es el siguiente:
 
-- **Sprint 1.** Propuesta, planes y estimación, continuidad hacia registro y solicitud de suscripción, acceso y ficha del animal, con internacionalización y accesibilidad. TS-10 habilita US-34 desde esta iteración; no se presume un cobro integrado.
-- **Sprint 2.** Cattle Band → BLE → Edge → API central, con cola persistente, configuración de asignaciones y geocercas, alertas locales, consultas Web y Mobile y sincronización de eventos offline. TS-03, US-15 y US-17 se anticipan para cubrir el flujo sin Internet.
+- **Sprint 1.** Landing Page informativa, orientación por segmento, planes y estimación informativa, términos, idioma, accesibilidad y contacto para demostración; primera versión navegable del frontend web con datos de ejemplo. No incluye backend, autenticación real, permisos efectivos, contratación persistida, aplicación móvil nativa ni dispositivos conectados.
+- **Sprint 2.** Integración funcional propuesta de registro, acceso, perfiles, autorización, registro y consulta de animales y solicitudes de suscripción. Estas capacidades preceden a sus consumidores en el flujo Cattle Band → BLE → Edge → API central, con cola persistente, configuración, alertas y sincronización offline. Su inclusión definitiva depende de la capacidad aprobada para la iteración.
 - **Sprint 3.** Indicadores web habilitados por TS-19, calendario, atención clínica, ahorro energético del collar y controlador del abrevadero con recepción y sincronización mediante Edge.
 - **Roadmap.** Las integraciones con sistemas externos de laboratorio, nutrición y meteorología, el seguimiento clínico avanzado y las capacidades de mantenimiento del inventario.
 
@@ -319,104 +324,106 @@ El criterio de asignación es el siguiente:
 
 | Alcance | Historias | Story Points |
 |---|---|---|
-| Sprint 1 | 14 | 57 |
-| Sprint 2 | 22 | 129 |
+| Sprint 1 | 8 | 33 |
+| Sprint 2, propuesto | 30 | 164 |
 | Sprint 3 | 18 | 84 |
-| Propuesto para el ciclo | 54 | 270 |
+| Propuesto para el ciclo | 56 | 281 |
 | Roadmap posterior | 22 | 82 |
-| **Total del Product Backlog** | **76** | **352** |
+| **Total del Product Backlog** | **78** | **363** |
 
-El Sprint 2 concentra la mayor carga porque reúne las historias de mayor complejidad técnica: la captura en el dispositivo, el procesamiento en el borde, la sincronización con el servicio central y la operación sin conectividad. Esta propuesta requiere revisar el desbalance antes de comprometer cada sprint, con dos medidas de control. La primera es validar la velocidad real al término del Sprint 1 y ajustar el alcance comprometido de las iteraciones siguientes con ese dato en lugar de con la estimación inicial. La segunda es tratar el flujo de telemetría como el objetivo indivisible del Sprint 2, de modo que, ante una desviación, se difieran primero las historias de alcance secundario antes que cualquier componente de ese flujo.
+Los 164 SP agrupados en Sprint 2 son una previsión de integración, no una capacidad aprobada. Antes de comprometer esa iteración se priorizan registro, acceso, permisos y persistencia, y se selecciona un recorrido de integración completo compatible con la capacidad observada. Las historias restantes se replanifican sin omitir las dependencias necesarias para el recorrido elegido. Los SP del frontend del Sprint 1 no se contabilizan como implementación del backend.
 
 **Product Backlog priorizado**
 
 | Orden | Story ID | Título | Descripción | Story Points | Sprint previsto |
-| --- | --- | --- | --- | --- | --- |
-| 1 | US-32 | Conocer la propuesta de ICHU | Presentar el problema, la solución IoT, los beneficios por segmento y los productos digitales. | 3 | Sprint 1 |
-| 2 | US-33 | Acceder al destino correspondiente a mi segmento | Dirigir al registro o acceso por rol y conservar la selección de plan. | 2 | Sprint 1 |
-| 3 | US-01 | Registrar una cuenta de unidad productiva | Crear la cuenta de la unidad productiva con su ubicación y escala. | 3 | Sprint 1 |
-| 4 | US-02 | Acceder a la plataforma | Iniciar sesión con el rol y el alcance de unidades productivas correspondiente. | 3 | Sprint 1 |
-| 5 | TS-10 | Solicitar y consultar suscripciones desde la Web Application | Publicar planes y estimaciones, registrar solicitudes pendientes y aplicar límites tras confirmación comercial. | 8 | Sprint 1 |
-| 6 | US-35 | Comparar los planes y estimar el costo | Comparar cobertura, costos de hardware y suscripción, moneda y vigencia de la estimación. | 5 | Sprint 1 |
-| 7 | US-36 | Consultar los términos y condiciones del servicio | Exponer las condiciones de uso y el tratamiento de los datos recolectados. | 2 | Sprint 1 |
-| 8 | US-34 | Iniciar la contratación de un plan | Conservar el plan durante el registro y solicitar la suscripción con términos e importe vigentes. | 5 | Sprint 1 |
-| 9 | US-03 | Completar el perfil profesional | Registrar especialidad, colegiatura y experiencia con control de duplicidad. | 3 | Sprint 1 |
-| 10 | US-04 | Autorizar a un médico veterinario sobre el hato | Conceder acceso acotado y temporal al profesional sobre la unidad productiva. | 5 | Sprint 1 |
-| 11 | US-06 | Registrar un animal en el hato | Incorporar el animal con su arete, raza, sexo, fecha de nacimiento y etapa productiva. | 5 | Sprint 1 |
-| 12 | US-07 | Consultar la ficha de un animal | Entregar identificación, etapa productiva, collar asignado y última lectura. | 3 | Sprint 1 |
-| 13 | US-37 | Consultar la experiencia en mi idioma | Presentar la totalidad del contenido en en_US o es_419 y conservar la preferencia. | 5 | Sprint 1 |
-| 14 | US-38 | Acceder a la experiencia con tecnología de asistencia | Exponer nombre y función accesibles, alternativas textuales y recorrido por teclado. | 5 | Sprint 1 |
-| 15 | US-10 | Asignar un collar inteligente a un animal | Vincular el dispositivo al animal respetando el límite del plan contratado. | 3 | Sprint 2 |
-| 16 | US-15 | Definir las zonas de pastoreo permitidas | Delimitar las áreas del predio contra las que se evalúa la ubicación del ganado. | 5 | Sprint 2 |
-| 17 | TS-15 | Actualizar la configuración local del Portable Edge Gateway | Obtener asignaciones, reglas, geocercas y permisos locales versionados. | 5 | Sprint 2 |
-| 18 | TS-01 | Capturar biometría y ubicación en el collar | Generar lecturas con identidad estable, tiempo de captura, unidades, validez y envío BLE al Edge. | 8 | Sprint 2 |
-| 19 | TS-04 | Recibir telemetría BLE en el Portable Edge Gateway | Adaptar BLE a la API local, persistir antes de confirmar y controlar duplicados y rechazos. | 8 | Sprint 2 |
-| 20 | TS-03 | Conservar las lecturas no transmitidas en el collar | Conservar y reenviar lecturas por BLE con confirmación durable y registro explícito de pérdidas. | 5 | Sprint 2 |
-| 21 | TS-05 | Evaluar umbrales y generar alertas en el Portable Edge Gateway | Evaluar umbrales y geocercas locales con configuración versionada, datos válidos y alertas estables. | 8 | Sprint 2 |
-| 22 | TS-07 | Validar y persistir los registros sincronizados del Edge | Validar lotes del Edge, atribución histórica y duplicados con confirmación individual. | 8 | Sprint 2 |
-| 23 | TS-06 | Sincronizar el Portable Edge Gateway con la API central | Sincronizar lotes de lecturas y alertas con resultados individuales, reintentos e idempotencia. | 8 | Sprint 2 |
-| 24 | TS-08 | Consultar telemetría autorizada desde la Web Application | Consultar lecturas cloud con permisos, rango, paginación, validez y tiempo de captura. | 5 | Sprint 2 |
-| 25 | TS-17 | Consultar telemetría local desde la Mobile Application | Obtener lecturas del Edge e informar origen, validez y antigüedad. | 5 | Sprint 2 |
-| 26 | US-13 | Consultar la telemetría reciente de un animal | Consultar valores válidos, origen y tiempo de captura en Cloud, Edge o copia descargada. | 3 | Sprint 2 |
-| 27 | TS-16 | Consultar y atender alertas locales desde la Mobile Application | Consumir y atender alertas en Edge sin Internet con versión e identidad de operación. | 5 | Sprint 2 |
-| 28 | TS-09 | Consultar y atender alertas cloud desde la Mobile Application | Consultar alertas cloud y registrar atención autorizada con versión e identidad de operación. | 8 | Sprint 2 |
-| 29 | TS-11 | Solicitar notificaciones externas desde ICHU Backend | Solicitar y registrar notificaciones con claves estables, entrega confirmada y reintentos. | 5 | Sprint 2 |
-| 30 | US-16 | Recibir una alerta por anomalía de salud | Alertar localmente con evidencia válida y conservar la identidad al sincronizar con el Cloud. | 8 | Sprint 2 |
-| 31 | US-19 | Atender una alerta | Registrar atención autorizada en Edge o Cloud con identidad, versión y tiempo de respuesta. | 3 | Sprint 2 |
-| 32 | US-17 | Recibir una alerta por salida del área permitida | Generar la alerta de seguridad con distancia al límite y registrar el retorno. | 5 | Sprint 2 |
-| 33 | US-20 | Localizar un animal extraviado | Entregar la última posición registrada y la distancia respecto al operario. | 5 | Sprint 2 |
-| 34 | TS-18 | Sincronizar los registros offline de la Mobile Application | Descargar fichas y sincronizar eventos persistentes con autorización y resultados individuales. | 8 | Sprint 2 |
-| 35 | US-21 | Registrar un evento de salud durante la faena | Registrar el animal, el tipo de evento, la fecha, el autor y su estado de sincronización. | 3 | Sprint 2 |
-| 36 | US-22 | Operar sin cobertura y sincronizar al recuperarla | Conservar fichas y eventos offline con permisos acotados, reintentos idempotentes y resolución de conflictos. | 8 | Sprint 2 |
-| 37 | TS-02 | Operar el collar en modo de bajo consumo | Configurar suspensión y despertar comprobables sin perder la cola ni asumir sensores activos durante el reposo. | 5 | Sprint 3 |
-| 38 | TS-19 | Consultar indicadores autorizados desde la Web Application | Obtener indicadores cloud con fórmula, cobertura y datos faltantes. | 5 | Sprint 3 |
-| 39 | US-29 | Consultar los indicadores del hato | Entregar animales monitoreados, alertas por tipo, salidas de zona y mortalidad del periodo. | 5 | Sprint 3 |
-| 40 | US-08 | Actualizar la etapa productiva de un animal | Registrar el cambio de etapa conservando el historial de vigencias. | 2 | Sprint 3 |
-| 41 | US-09 | Registrar la baja de un animal | Registrar el motivo y la fecha, y liberar el collar asignado. | 3 | Sprint 3 |
-| 42 | US-18 | Identificar un posible evento reproductivo | Detectar la desviación respecto a la línea base del animal y sustentarla con lecturas. | 8 | Sprint 3 |
-| 43 | US-30 | Analizar tendencias y distribución del hato | Entregar la serie del periodo, el promedio del lote y los animales atípicos. | 5 | Sprint 3 |
-| 44 | US-31 | Exportar un reporte ejecutivo | Generar el archivo del periodo con indicadores, rango de fechas y fecha de generación. | 5 | Sprint 3 |
-| 45 | US-39 | Solicitar autorización sobre una nueva unidad productiva | Permitir al veterinario iniciar la relación de asesoría con un hato. | 3 | Sprint 3 |
-| 46 | US-23 | Registrar una intervención clínica | Registrar tipo, fecha, producto, dosis y autoría, con control de periodo de retiro. | 5 | Sprint 3 |
-| 47 | US-41 | Consultar el periodo de retiro vigente de un animal | Determinar si la producción del animal presenta restricción de destino. | 3 | Sprint 3 |
-| 48 | US-24 | Preparar una atención con información previa | Consolidar telemetría, eventos, intervenciones y periodos de retiro del animal. | 3 | Sprint 3 |
-| 49 | US-14 | Consultar el historial biométrico de un animal | Entregar la evolución del periodo junto con alertas y eventos concurrentes. | 5 | Sprint 3 |
-| 50 | US-26 | Programar una campaña sanitaria | Programar la faena con su lote y detectar superposición con periodos de retiro. | 5 | Sprint 3 |
-| 51 | US-27 | Recibir el recordatorio de una faena programada | Generar el aviso anticipado con el tipo de campaña y los animales pendientes. | 3 | Sprint 3 |
-| 52 | TS-13 | Capturar la temperatura del agua y controlar el calentamiento | Medir, aplicar histéresis y estado seguro, conservar eventos y entregarlos por BLE al Edge. | 8 | Sprint 3 |
-| 53 | TS-14 | Sincronizar los registros del abrevadero desde el Edge | Persistir en Edge y sincronizar lecturas y eventos del abrevadero con confirmación e idempotencia. | 8 | Sprint 3 |
-| 54 | US-54 | Consultar la temperatura del agua del abrevadero | Entregar temperatura, estado del actuador y antigüedad de la última lectura. | 3 | Sprint 3 |
-| 55 | US-42 | Evaluar la respuesta de un animal a un tratamiento | Contrastar las constantes previas y posteriores a las 12, 24 y 48 horas. | 5 | Roadmap |
-| 56 | US-40 | Recibir una alerta por tratamiento sin respuesta | Avisar al veterinario cuando el animal tratado no retorna al rango normal. | 5 | Roadmap |
-| 57 | US-43 | Registrar un diagnóstico diferencial descartado | Conservar las hipótesis descartadas con su motivo y su autoría. | 3 | Roadmap |
-| 58 | US-50 | Programar una revisión de seguimiento | Vincular la revisión posterior a la intervención que la origina. | 3 | Roadmap |
-| 59 | US-51 | Identificar los animales con campañas sanitarias vencidas | Priorizar la visita según los días transcurridos desde la fecha programada. | 3 | Roadmap |
-| 60 | US-52 | Analizar la curva epidemiológica de un evento sanitario | Seguir los casos nuevos por fecha y sustentar el aislamiento o su levantamiento. | 8 | Roadmap |
-| 61 | US-45 | Consultar el historial reproductivo de un animal | Entregar servicios, partos, días abiertos y servicios por preñez lograda. | 5 | Roadmap |
-| 62 | US-53 | Consultar el consolidado de las unidades productivas que asesoro | Ordenar la cartera del veterinario por severidad de la situación de cada hato. | 5 | Roadmap |
-| 63 | US-48 | Exportar el informe clínico de un animal | Generar el sustento de la atención con los datos profesionales del veterinario. | 3 | Roadmap |
-| 64 | US-47 | Registrar una recomendación de manejo para el ganadero | Dejar constancia de la indicación y dar seguimiento a su ejecución. | 3 | Roadmap |
-| 65 | US-28 | Registrar la ejecución de una faena | Registrar los animales atendidos y actualizar el avance de la campaña. | 3 | Roadmap |
-| 66 | US-25 | Adjuntar evidencia de diagnóstico por imagen | Vincular la imagen a la intervención reproductiva del animal. | 3 | Roadmap |
-| 67 | US-44 | Registrar el resultado de un examen de laboratorio externo | Incorporar el hallazgo del laboratorio al caso clínico del animal. | 3 | Roadmap |
-| 68 | US-49 | Comparar un animal con el promedio de su lote | Distinguir el problema individual de la condición que afecta al grupo. | 5 | Roadmap |
-| 69 | US-46 | Consultar el plan nutricional vigente de un lote | Descartar la causa nutricional contrastando la ración con la rumia del lote. | 3 | Roadmap |
-| 70 | US-11 | Consultar el estado del inventario de collares | Entregar batería, animal asignado y detección de dispositivos sin comunicación. | 3 | Roadmap |
-| 71 | US-12 | Liberar un collar de un animal | Cerrar la asignación conservando la telemetría del periodo. | 2 | Roadmap |
-| 72 | US-05 | Revocar la autorización de un médico veterinario | Retirar el acceso conservando la autoría de los registros previos. | 2 | Roadmap |
-| 73 | TS-12 | Consultar contexto meteorológico desde ICHU Backend | Obtener contexto meteorológico trazable sin bloquear el Edge ni sustituir mediciones biométricas. | 5 | Roadmap |
-| 74 | US-55 | Recibir una alerta por agua fuera del rango de consumo | Alertar la desviación sostenida y escalar ante sospecha de falla del actuador. | 5 | Roadmap |
-| 75 | US-56 | Verificar el estado del abrevadero durante la faena | Priorizar qué abrevaderos revisar físicamente desde el potrero. | 2 | Roadmap |
-| 76 | US-57 | Relacionar la temperatura del agua con el consumo del lote | Descartar la causa hídrica antes de atribuir la caída de consumo a un cuadro clínico. | 3 | Roadmap |
+|---|---|---|---|---|---|
+| 1 | US-32 | Conocer la propuesta de ICHU | Como visitante, deseo conocer el problema que resuelve ICHU, sus productos y sus beneficios, para evaluar si la solución se adapta a mi unidad productiva. | 3 | Sprint 1 |
+| 2 | US-33 | Acceder al destino correspondiente a mi segmento | Como visitante, deseo acceder al registro o al inicio de sesión correspondiente a mi perfil, para comenzar a utilizar ICHU. | 2 | Sprint 1 |
+| 3 | US-35 | Comparar los planes y estimar el costo | Como administrador ganadero, deseo comparar los planes según el tamaño de mi hato, para conocer la cobertura y el costo estimado antes de contratar. | 5 | Sprint 1 |
+| 4 | US-36 | Consultar los términos y condiciones del servicio | Como visitante, deseo acceder a los términos y condiciones, para conocer las responsabilidades y las condiciones de uso antes de entregar mis datos. | 2 | Sprint 1 |
+| 5 | US-59 | Solicitar una demostración desde la Landing Page | Como visitante, deseo preparar una solicitud de demostración desde la Landing Page, para contactar al equipo sobre la solución adecuada para mi actividad. | 3 | Sprint 1 |
+| 6 | US-37 | Consultar la experiencia en mi idioma | Como visitante, deseo consultar el contenido en inglés o en español latinoamericano, para comprender la propuesta en el idioma que domino. | 5 | Sprint 1 |
+| 7 | US-38 | Acceder a la experiencia con tecnología de asistencia | Como visitante que utiliza un lector de pantalla, deseo recorrer la Landing Page y comprender su contenido, para evaluar la propuesta en igualdad de condiciones. | 5 | Sprint 1 |
+| 8 | US-58 | Explorar la primera versión del frontend web | Como ganadero o médico veterinario, deseo recorrer la primera versión de la aplicación web con datos de ejemplo, para evaluar los recorridos de trabajo antes de integrar los servicios del producto. | 8 | Sprint 1 |
+| 9 | US-01 | Registrar una cuenta de unidad productiva | Como administrador ganadero, deseo registrar mi unidad productiva en ICHU, para gestionar mi hato desde la plataforma. | 3 | Sprint 2 |
+| 10 | US-02 | Acceder a la plataforma | Como usuario registrado, deseo acceder a la plataforma con mis credenciales, para operar sobre la información que me corresponde. | 3 | Sprint 2 |
+| 11 | US-03 | Completar el perfil profesional | Como médico veterinario, deseo completar mi perfil con mi especialidad, número de colegiatura y años de experiencia, para que los ganaderos que me autoricen conozcan mis credenciales. | 3 | Sprint 2 |
+| 12 | US-04 | Autorizar a un médico veterinario sobre el hato | Como administrador ganadero, deseo autorizar a un médico veterinario a consultar y registrar información clínica de mi hato, para que pueda atender a mis animales con datos completos. | 5 | Sprint 2 |
+| 13 | US-06 | Registrar un animal en el hato | Como administrador ganadero, deseo registrar un animal con su identificación y sus datos productivos, para incorporarlo a la gestión del hato. | 5 | Sprint 2 |
+| 14 | US-07 | Consultar la ficha de un animal | Como administrador ganadero, deseo consultar la ficha de un animal, para conocer su identificación, su etapa productiva y el collar que tiene asignado. | 3 | Sprint 2 |
+| 15 | TS-10 | Solicitar y consultar suscripciones desde la Web Application | Como Web Application, necesito contratos de planes, estimación y solicitud de suscripción, para continuar la contratación iniciada en la Landing Page y aplicar el plan confirmado. | 8 | Sprint 2 |
+| 16 | US-34 | Iniciar la contratación de un plan | Como visitante del segmento ganadero, deseo iniciar la contratación del plan que elegí, para registrar mi unidad productiva y avanzar hacia una suscripción de ICHU. | 5 | Sprint 2 |
+| 17 | US-10 | Asignar un collar inteligente a un animal | Como administrador ganadero, deseo asignar un collar inteligente a un animal, para que su telemetría quede vinculada a la ficha correspondiente. | 3 | Sprint 2 |
+| 18 | US-15 | Definir las zonas de pastoreo permitidas | Como administrador ganadero, deseo delimitar las zonas de pastoreo permitidas de mi predio, para que el sistema pueda determinar cuándo un animal se encuentra fuera de ellas. | 5 | Sprint 2 |
+| 19 | TS-15 | Actualizar la configuración local del Portable Edge Gateway | Como Portable Edge Gateway, necesito consultar asignaciones, umbrales, geocercas y permisos de mi unidad productiva, para evaluar y servir información local con reglas trazables. | 5 | Sprint 2 |
+| 20 | TS-01 | Capturar biometría y ubicación en el collar | Como Device Maker, necesito un contrato de captura del Cattle Band, para integrar sensores y entregar lecturas identificables al Portable Edge Gateway por BLE. | 8 | Sprint 2 |
+| 21 | TS-04 | Recibir telemetría BLE en el Portable Edge Gateway | Como Device Maker, necesito que el Portable Edge Gateway acepte y confirme el contrato BLE del Cattle Band, para integrar el collar sin depender de Internet. | 8 | Sprint 2 |
+| 22 | TS-03 | Conservar las lecturas no transmitidas en el collar | Como Device Maker, necesito una cola persistente y confirmaciones del Gateway, para preservar las lecturas cuando se interrumpe el enlace BLE. | 5 | Sprint 2 |
+| 23 | TS-05 | Evaluar umbrales y generar alertas en el Portable Edge Gateway | Como Portable Edge Gateway, necesito evaluar las lecturas con la configuración local vigente, para producir alertas consultables por la Mobile Application sin conexión al Cloud. | 8 | Sprint 2 |
+| 24 | TS-07 | Validar y persistir los registros sincronizados del Edge | Como Portable Edge Gateway, necesito que la API central valide y confirme mis registros sincronizados, para que el Cloud conserve la información capturada sin conexión sin duplicarla. | 8 | Sprint 2 |
+| 25 | TS-06 | Sincronizar el Portable Edge Gateway con la API central | Como Portable Edge Gateway, necesito enviar lecturas, alertas y sus cambios pendientes a la API central, para compartir los registros locales con las aplicaciones cuando exista conectividad. | 8 | Sprint 2 |
+| 26 | TS-08 | Consultar telemetría autorizada desde la Web Application | Como Web Application, necesito consultar la telemetría de animales autorizados mediante la API central, para presentar historiales con su origen y vigencia. | 5 | Sprint 2 |
+| 27 | TS-17 | Consultar telemetría local desde la Mobile Application | Como Mobile Application, necesito consultar las lecturas del Portable Edge Gateway mediante su API local, para mostrar ubicación e indicadores durante el pastoreo sin Internet. | 5 | Sprint 2 |
+| 28 | US-13 | Consultar la telemetría reciente de un animal | Como administrador ganadero, deseo consultar la temperatura, la actividad y la última ubicación conocida de un animal, para orientar la revisión de posibles anomalías. | 3 | Sprint 2 |
+| 29 | TS-16 | Consultar y atender alertas locales desde la Mobile Application | Como Mobile Application, necesito consumir las alertas del Portable Edge Gateway por la red local, para atenderlas cuando no existe Internet. | 5 | Sprint 2 |
+| 30 | TS-09 | Consultar y atender alertas cloud desde la Mobile Application | Como Mobile Application, necesito consultar y confirmar la atención de alertas en la API central, para mantener el estado compartido de atención del hato autorizado. | 8 | Sprint 2 |
+| 31 | TS-11 | Solicitar notificaciones externas desde ICHU Backend | Como ICHU Backend, necesito consumir un proveedor de notificaciones, para solicitar la entrega de alertas críticas a los destinatarios autorizados cuando exista conectividad. | 5 | Sprint 2 |
+| 32 | US-16 | Recibir una alerta por anomalía de salud | Como administrador ganadero, deseo recibir una alerta ante una desviación de temperatura o actividad, para revisar al animal y solicitar atención profesional cuando corresponda. | 8 | Sprint 2 |
+| 33 | US-19 | Atender una alerta | Como administrador ganadero, deseo registrar la atención de una alerta y el hallazgo, para conservar el antecedente y medir el tiempo de respuesta. | 3 | Sprint 2 |
+| 34 | US-17 | Recibir una alerta por salida del área permitida | Como administrador ganadero, deseo recibir una alerta cuando un animal salga de la zona de pastoreo asignada, para reducir el riesgo de abigeato o extravío. | 5 | Sprint 2 |
+| 35 | US-20 | Localizar un animal extraviado | Como operario de campo, deseo consultar la última ubicación registrada de un animal, para reducir el tiempo de búsqueda en el potrero. | 5 | Sprint 2 |
+| 36 | TS-18 | Sincronizar los registros offline de la Mobile Application | Como Mobile Application, necesito descargar fichas autorizadas y sincronizar mis registros de campo con la API central, para continuar la faena sin perder eventos ni duplicarlos. | 8 | Sprint 2 |
+| 37 | US-21 | Registrar un evento de salud durante la faena | Como operario de campo, deseo registrar lo que observo en el animal en el momento en que lo observo, para que la información no se pierda al terminar la jornada. | 3 | Sprint 2 |
+| 38 | US-22 | Operar sin cobertura y sincronizar al recuperarla | Como operario de campo, deseo consultar fichas descargadas y registrar eventos sin Internet, para mantener la continuidad de la faena con mis permisos vigentes. | 8 | Sprint 2 |
+| 39 | TS-02 | Operar el collar en modo de bajo consumo | Como Device Maker, necesito configurar el muestreo y la suspensión del Cattle Band, para reducir el consumo manteniendo la captura y transmisión local requeridas. | 5 | Sprint 3 |
+| 40 | TS-19 | Consultar indicadores autorizados desde la Web Application | Como Web Application, necesito consultar los indicadores agregados del hato en la API central, para presentar información de gestión consistente con el periodo y los permisos del usuario. | 5 | Sprint 3 |
+| 41 | US-29 | Consultar los indicadores del hato | Como administrador ganadero, deseo consultar los indicadores agregados de mi hato, para conocer el estado del negocio sin recorrer el predio. | 5 | Sprint 3 |
+| 42 | US-08 | Actualizar la etapa productiva de un animal | Como administrador ganadero, deseo actualizar la etapa productiva de un animal, para que los indicadores del hato reflejen su situación real. | 2 | Sprint 3 |
+| 43 | US-09 | Registrar la baja de un animal | Como administrador ganadero, deseo registrar la baja de un animal por muerte, venta o robo, para mantener el inventario del hato actualizado y medir la mortalidad real. | 3 | Sprint 3 |
+| 44 | US-18 | Identificar un posible evento reproductivo | Como administrador ganadero, deseo que el sistema identifique variaciones de actividad y temperatura compatibles con un celo, para orientar una revisión reproductiva sin depender únicamente de la observación visual; el indicador es una hipótesis que requiere valoración profesional. | 8 | Sprint 3 |
+| 45 | US-30 | Analizar tendencias y distribución del hato | Como médico veterinario, deseo analizar la evolución de la temperatura, la actividad y la distribución de alertas del hato, para identificar un brote antes de que se extienda. | 5 | Sprint 3 |
+| 46 | US-31 | Exportar un reporte ejecutivo | Como administrador ganadero, deseo exportar un reporte del periodo con los indicadores de salud, reproducción y mortalidad de mi hato, para sustentar decisiones y compartirlo con mi veterinario. | 5 | Sprint 3 |
+| 47 | US-39 | Solicitar autorización sobre una nueva unidad productiva | Como médico veterinario, deseo solicitar autorización sobre el hato de un ganadero que acaba de contratarme, para acceder a su información sin depender de que él sepa dónde concederla. | 3 | Sprint 3 |
+| 48 | US-23 | Registrar una intervención clínica | Como médico veterinario, deseo registrar las vacunaciones, tratamientos e inseminaciones que aplico, para que el historial del animal refleje con exactitud qué se le administró y cuándo. | 5 | Sprint 3 |
+| 49 | US-41 | Consultar el periodo de retiro vigente de un animal | Como médico veterinario, deseo conocer si un animal se encuentra dentro del periodo de retiro de algún producto, para indicar al ganadero si su leche o su carne pueden destinarse al consumo. | 3 | Sprint 3 |
+| 50 | US-24 | Preparar una atención con información previa | Como médico veterinario, deseo revisar de forma remota la telemetría y los eventos recientes de un animal antes de desplazarme al predio, para preparar la inspección y valorar hipótesis con información previa, sin sustituir el examen del animal. | 3 | Sprint 3 |
+| 51 | US-14 | Consultar el historial biométrico de un animal | Como médico veterinario, deseo consultar la evolución de la temperatura, la actividad y la rumia de un animal en un periodo determinado, para sustentar mi diagnóstico con datos y no con una observación puntual. | 5 | Sprint 3 |
+| 52 | US-26 | Programar una campaña sanitaria | Como administrador ganadero, deseo programar las campañas de vacunación y desparasitación de mi hato, para ajustarlas al calendario sanitario de mi región y no depender de recordarlas de memoria. | 5 | Sprint 3 |
+| 53 | US-27 | Recibir el recordatorio de una faena programada | Como administrador ganadero, deseo recibir un recordatorio antes de cada faena programada, para preparar los insumos y el personal con anticipación. | 3 | Sprint 3 |
+| 54 | TS-13 | Capturar la temperatura del agua y controlar el calentamiento | Como Device Maker, necesito definir el contrato de medición y control local del Water Controller, para integrar el sensor y el actuador sin depender de servicios cloud. | 8 | Sprint 3 |
+| 55 | TS-14 | Sincronizar los registros del abrevadero desde el Edge | Como Portable Edge Gateway, necesito enviar a la API central las lecturas y eventos recibidos del Water Controller, para que las aplicaciones consulten el estado del abrevadero sin conexión directa del dispositivo al Cloud. | 8 | Sprint 3 |
+| 56 | US-54 | Consultar la temperatura del agua del abrevadero | Como administrador ganadero, deseo conocer la temperatura del agua de mis abrevaderos, para dejar de depender de la comprobación manual durante el recorrido del predio. | 3 | Sprint 3 |
+| 57 | US-42 | Evaluar la respuesta de un animal a un tratamiento | Como médico veterinario, deseo comparar las constantes del animal antes y después de aplicar un tratamiento, para confirmar con datos si el protocolo está funcionando. | 5 | Roadmap |
+| 58 | US-40 | Recibir una alerta por tratamiento sin respuesta | Como médico veterinario, deseo recibir una alerta cuando un animal que traté no mejora dentro del plazo esperado, para reevaluar el diagnóstico antes de que el cuadro se agrave. | 5 | Roadmap |
+| 59 | US-43 | Registrar un diagnóstico diferencial descartado | Como médico veterinario, deseo dejar constancia de las hipótesis diagnósticas que descarté y por qué, para que otro profesional que atienda al animal no repita el mismo análisis. | 3 | Roadmap |
+| 60 | US-50 | Programar una revisión de seguimiento | Como médico veterinario, deseo programar la revisión posterior de un animal que traté, para verificar su evolución sin depender de que el ganadero me avise. | 3 | Roadmap |
+| 61 | US-51 | Identificar los animales con campañas sanitarias vencidas | Como médico veterinario, deseo conocer qué animales de los hatos que asesoro tienen campañas vencidas, para priorizar mi visita y reducir el riesgo sanitario del grupo. | 3 | Roadmap |
+| 62 | US-52 | Analizar la curva epidemiológica de un evento sanitario | Como médico veterinario, deseo seguir la evolución de los casos de un mismo cuadro dentro del hato, para decidir si corresponde aislar un lote o levantar una cuarentena. | 8 | Roadmap |
+| 63 | US-45 | Consultar el historial reproductivo de un animal | Como médico veterinario, deseo consultar los servicios, partos e intervalos reproductivos de una hembra, para decidir si continúa en el programa reproductivo o pasa a descarte. | 5 | Roadmap |
+| 64 | US-53 | Consultar el consolidado de las unidades productivas que asesoro | Como médico veterinario, deseo revisar en una sola consulta el estado de todos los hatos que atiendo, para decidir a cuál acudir primero en la jornada. | 5 | Roadmap |
+| 65 | US-48 | Exportar el informe clínico de un animal | Como médico veterinario, deseo exportar el informe clínico de un animal con mis datos profesionales, para entregarlo al ganadero como sustento de mi atención. | 3 | Roadmap |
+| 66 | US-47 | Registrar una recomendación de manejo para el ganadero | Como médico veterinario, deseo dejar registrada una recomendación dirigida al administrador de la unidad productiva, para que la indicación no se pierda al terminar la visita. | 3 | Roadmap |
+| 67 | US-28 | Registrar la ejecución de una faena | Como operario de campo, deseo registrar qué animales recibieron efectivamente la aplicación durante la faena, para que el avance de la campaña refleje el trabajo realizado. | 3 | Roadmap |
+| 68 | US-25 | Adjuntar evidencia de diagnóstico por imagen | Como médico veterinario, deseo adjuntar la imagen ecográfica al registro de una intervención reproductiva, para sustentar el diagnóstico de gestación sin duplicar el registro en otro sistema. | 3 | Roadmap |
+| 69 | US-44 | Registrar el resultado de un examen de laboratorio externo | Como médico veterinario, deseo incorporar al historial del animal el resultado del laboratorio al que derivé la muestra, para que el diagnóstico quede sustentado en un solo lugar. | 3 | Roadmap |
+| 70 | US-49 | Comparar un animal con el promedio de su lote | Como médico veterinario, deseo contrastar las constantes de un animal con las de su lote en el mismo periodo, para distinguir un problema individual de una condición que afecta a todo el grupo. | 5 | Roadmap |
+| 71 | US-46 | Consultar el plan nutricional vigente de un lote | Como médico veterinario, deseo conocer la ración que recibe el lote, para descartar una causa nutricional antes de atribuir el cuadro a una enfermedad infecciosa. | 3 | Roadmap |
+| 72 | US-11 | Consultar el estado del inventario de collares | Como administrador ganadero, deseo consultar el estado de mis collares, para identificar cuáles están sin señal o con batería baja antes de que dejen de reportar. | 3 | Roadmap |
+| 73 | US-12 | Liberar un collar de un animal | Como administrador ganadero, deseo liberar un collar del animal que lo porta, para reasignarlo cuando el animal causa baja o el dispositivo requiere mantenimiento. | 2 | Roadmap |
+| 74 | US-05 | Revocar la autorización de un médico veterinario | Como administrador ganadero, deseo revocar la autorización concedida a un médico veterinario, para retirar su acceso cuando termina la relación de asesoría. | 2 | Roadmap |
+| 75 | TS-12 | Consultar contexto meteorológico desde ICHU Backend | Como ICHU Backend, necesito consumir las condiciones meteorológicas del predio, para ofrecer contexto a las aplicaciones sin confundirlo con la temperatura corporal. | 5 | Roadmap |
+| 76 | US-55 | Recibir una alerta por agua fuera del rango de consumo | Como administrador ganadero, deseo recibir una alerta cuando el agua se enfríe por debajo del rango en que el ganado bebe con normalidad, para evitar la caída de consumo que reduce la producción. | 5 | Roadmap |
+| 77 | US-56 | Verificar el estado del abrevadero durante la faena | Como operario de campo, deseo verificar el estado de los abrevaderos desde el potrero, para priorizar cuáles reviso físicamente en lugar de recorrerlos todos. | 2 | Roadmap |
+| 78 | US-57 | Relacionar la temperatura del agua con el consumo del lote | Como médico veterinario, deseo contrastar la temperatura del agua con la actividad y la rumia del lote, para descartar la causa hídrica antes de atribuir una caída de consumo a un cuadro clínico. | 3 | Roadmap |
 
 **Resumen de la estimación**
 
 | Concepto | Valor |
 |---|---|
-| User Stories | 57 |
+| User Stories | 59 |
 | Technical Stories | 19 |
-| Total de historias | 76 |
-| Suma de Story Points | 352 |
+| Total de historias | 78 |
+| Suma de Story Points | 363 |
 
 **Evidencia del Product Backlog en la herramienta de control**
 
@@ -424,6 +431,6 @@ El equipo gestiona el Product Backlog en **Jira**, herramienta que se mantendrá
 
 ![Product Backlog en Jira](assets/images/product-backlog-jira.png)
 
-*Figura 8. Captura histórica del backlog en Jira para AV1. La tabla Markdown anterior contiene la revisión de 76 historias; la captura y el board requieren sincronizar títulos, nuevas TS, estimaciones y sprints. Esta corrección del informe no modifica Jira.*
+*Figura 8. Captura histórica del backlog en Jira para AV1; no representa la selección de Sprint 1 de esta tabla. El backlog del informe contiene 78 historias y delimita la entrega frontend. La captura y el tablero conservan su estado previo; no se presentan como evidencia de esta planificación actualizada.*
 
 URL del board de Jira con el Product Backlog: [https://tinyurl.com/25bk4aaf](https://tinyurl.com/25bk4aaf)
