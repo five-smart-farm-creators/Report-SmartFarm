@@ -85,6 +85,12 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
                 tags "Mobile"
             }
 
+            mobileCacheDatabase = container "Mobile Cache Database" {
+                technology "SQLite"
+                description "On-device cache for recently accessed livestock records, alerts and pending offline operations"
+                tags "Database"
+            }
+
             cattleBandEmbeddedApp = container "Cattle Band Embedded Application" {
                 technology "C++ on ESP32"
                 description "Collar firmware that captures and transmits telemetry"
@@ -399,13 +405,13 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
 
         ranchManager -> webApplication "Loads the UI from" "HTTPS"
         ranchManager -> spa "Manages cattle and reviews indicators" "HTTPS"
-        ranchManager -> mobileApplication "Reviews cattle and receives alerts" "HTTPS"
+        veterinarian -> mobileApplication "Reviews cattle and receives alerts" "HTTPS"
 
         fieldOperator -> mobileApplication "Performs field tasks" "HTTPS / Local Network"
 
         veterinarian -> webApplication "Loads the UI from" "HTTPS"
         veterinarian -> spa "Reviews authorized information" "HTTPS"
-        veterinarian -> mobileApplication "Reviews information during a farm visit" "HTTPS"
+        veterinarian -> mobileApplication "Reviews authorized cattle information during farm visits" "HTTPS"
 
         landingPageUxUi -> webApplication "Redirects users to the web application when CTA is clicked" "HTTPS"
 
@@ -424,7 +430,9 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         landingPageUxUi -> backend "Requests plans and public content" "HTTPS / JSON"
         spa -> backend "Retrieves alerts and monitoring" "HTTPS / JSON"
         backend -> spa "Streams real time alerts and notifications" "HTTPS / WSS"
+
         mobileApplication -> backend "Calls the REST API" "HTTPS / JSON"
+        mobileApplication -> mobileCacheDatabase "Reads and writes cached information for offline use" "SQLite"
 
         cattleBandEmbeddedApp -> cattleBandHardware "Reads sensors and position"
         cattleBandEmbeddedApp -> backend "Sends telemetry when Internet is available" "HTTPS / JSON"
@@ -541,9 +549,10 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
                     containerInstance edgeDatabase
                 }
 
-                deploymentNode "Field Operator Mobile Device" {
+                deploymentNode "Mobile User Device" {
                     technology "Android / iOS"
                     containerInstance mobileApplication
+                    containerInstance mobileCacheDatabase
                 }
             }
 
@@ -604,6 +613,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         systemContext ichu "SystemContext" {
             title "ICHU - System Context"
             description "Users, IoT hardware and external services interacting with ICHU"
+
             include ichu
             include ranchManager
             include fieldOperator
@@ -615,20 +625,25 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             include firebaseMessaging
             include mapProvider
             include paymentProvider
+
             autoLayout lr
         }
 
         container ichu "ContainerDiagram" {
             title "ICHU - Container Diagram"
             description "Browser clients, static hosting, mobile, IoT, Edge, Web Service and databases"
+
             include *
+
             autoLayout lr
         }
 
         deployment * "Production" "ProductionDeployment" {
             title "ICHU - Production Deployment"
             description "Static hosting is separated from browser execution, Edge and cloud services"
+
             include *
+
             autoLayout lr
         }
 
