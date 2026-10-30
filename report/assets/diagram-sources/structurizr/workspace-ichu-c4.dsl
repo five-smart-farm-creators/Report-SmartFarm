@@ -39,7 +39,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
 
       
 
-        firebaseMessaging = softwareSystem "Firebase Cloud Messaging" {
+        firebaseMessaging = softwareSystem "Firebase Cloud Messaging Provider" {
             description "External push notification service"
             tags "External"
         }
