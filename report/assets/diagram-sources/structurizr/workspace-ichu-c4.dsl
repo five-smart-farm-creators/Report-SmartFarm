@@ -63,11 +63,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
                 tags "LandingPageUxUi"
             }
 
-            webApplicationHosting = container "Web Application Hosting" {
-                technology "Static Web Hosting"
-                description "Serves the compiled Angular HTML, CSS and JavaScript files"
-                tags "StaticHosting"
-            }
+           
 
             webApplication = container "Web Application" {
                 technology "HTML + CSS"
@@ -423,9 +419,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         spa -> mapProvider "Displays positions and geofences" "HTTPS"
         mobileApplication -> mapProvider "Displays positions and geofences" "HTTPS"
 
-        webApplication -> webApplicationHosting "Downloads the HTML and CSS files" "HTTPS"
-        spa -> webApplicationHosting "Downloads the Angular SPA bundle" "HTTPS"
-        landingPageUxUi -> webApplicationHosting "Opens the application URL" "HTTPS"
+      
 
         landingPageUxUi -> backend "Requests plans and public content" "HTTPS / JSON"
         spa -> backend "Retrieves alerts and monitoring" "HTTPS / JSON"
@@ -569,7 +563,6 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             deploymentNode "Cloud Platform" {
                 deploymentNode "Angular Application Web Hosting" {
                     technology "HTTPS static file hosting"
-                    containerInstance webApplicationHosting
                 }
 
                 deploymentNode ".NET Application Runtime" {
