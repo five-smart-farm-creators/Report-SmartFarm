@@ -57,7 +57,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         ichu = softwareSystem "ICHU" {
             description "Livestock management IoT platform"
 
-            landingPageUxUi = container "Landing Page" {
+            landingPageUxUi = container "Website" {
                 technology "HTML + CSS + JavaScript"
                 description "Customer-visible layout and styles of the public landing page, rendered in the browser"
                 tags "LandingPageUxUi"
