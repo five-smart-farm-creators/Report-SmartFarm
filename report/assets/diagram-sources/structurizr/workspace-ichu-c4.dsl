@@ -213,7 +213,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
                 }
             }
 
-            edgeGateway = container "Portable Edge Gateway" {
+            edgeGateway = container "Portable Edge Service" {
                 technology "Flask + Peewee ORM on Python, running on Raspberry Pi or similar Edge Device"
                 description "Portable offline gateway with later cloud synchronization"
                 tags "Edge"
