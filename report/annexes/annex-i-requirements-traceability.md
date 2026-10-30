@@ -121,7 +121,7 @@ La tabla remite al registro y análisis de entrevistas del Capítulo II ([https:
 | Campañas sanitarias según el calendario andino: carbúnculo, desparasitación (Próspero, Meikoll) | US-26, US-27, US-28 |
 | Preferencia de pago declarada en el cuestionario; disposición de contratación pendiente de validación | US-34, US-35, TS-10 |
 | Control de costos y rentabilidad por cabeza (Próspero, Meikoll, Grober) | US-29, US-31 |
-| Verificación manual de pastos y agua durante el recorrido diario del predio (mapa de empat?a de Cesar Flores) | US-54, US-55, US-56, TS-13, TS-14 |
+| Verificación manual de pastos y agua durante el recorrido diario del predio (mapa de empatía de Cesar Flores) | US-54, US-55, US-56, TS-13, TS-14 |
 | Caída del consumo y de la rumia como signo previo a un cuadro clínico (Darwin, Eliseo, Dionisio) | US-57 |
 | Riesgo de intoxicación por dosificación repetida y de fallo de preñez por vacunación omitida | US-41, US-43, US-51 |
 | Darwin describe seguimiento de constantes tras el tratamiento; los plazos de cada caso deben ser configurados y validados por el profesional, no asumidos como una regla universal | US-40, US-42 |
