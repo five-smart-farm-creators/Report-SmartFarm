@@ -808,7 +808,7 @@ Las definiciones describen animales, personas, lugares, prácticas, registros y 
 | Registro de campo | Field record | Anotación de una observación o labor durante la faena, vinculada al animal y al momento del hecho. Puede incorporarse después a los registros de oficina. |
 | Rumia | Rumination | Proceso digestivo del bovino cuya observación aporta información al seguimiento de su estado general. Su valoración se interpreta junto con otros hallazgos. |
 | Servicio reproductivo | Breeding service | Monta o inseminación registrada para el seguimiento de la reproducción. Un servicio no garantiza una preñez. |
-| Timpanismo | Bloat | Problema digestivo del bovino mencionado por Dionisio entre los casos sanitarios atendidos. Su diagnóstico corresponde al médico veterinario. |
+| Timpanismo | Bloat | Problema digestivo del bovino mencionado por Darwin y Eliseo entre los casos sanitarios atendidos. Su diagnóstico corresponde al médico veterinario. |
 | Tratamiento | Treatment | Medida terapéutica indicada por el médico veterinario y aplicada al animal, con registro del producto o procedimiento, fecha y responsable. |
 | Unidad productiva ganadera | Ranch | Organización y predio donde se administra el hato; en las entrevistas también se denomina fundo, estancia o hacienda. |
 | Zootecnista | Zootechnician | Profesional que asesora sobre producción, alimentación, reproducción y manejo del ganado dentro de su ámbito de trabajo. Su rol se distingue del diagnóstico clínico veterinario. |
