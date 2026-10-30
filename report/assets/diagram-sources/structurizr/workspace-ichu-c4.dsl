@@ -58,7 +58,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             description "Livestock management IoT platform"
 
             landingPageUxUi = container "Landing Page" {
-                technology "HTML + CSS"
+                technology "HTML + CSS + JavaScript"
                 description "Customer-visible layout and styles of the public landing page, rendered in the browser"
                 tags "LandingPageUxUi"
             }
@@ -66,13 +66,13 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
            
 
             webApplication = container "Web Application" {
-                technology "HTML + CSS"
+                technology "HTML + CSS + JavaScript"
                 description "Static visual layer of the web application, providing its HTML and CSS user interface"
                 tags "BrowserClient"
             }
 
             spa = container "Single Page Application" {
-                technology "Angular + JavaScript"
+                technology "Angular + TypeScript"
                 description "Interactive Angular single-page application that implements system functionality and displays alerts"
                 tags "BrowserClient"
             }
