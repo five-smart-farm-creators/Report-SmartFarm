@@ -37,10 +37,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             tags "External,Hardware"
         }
 
-        firebaseAuth = softwareSystem "Firebase Authentication" {
-            description "External user authentication service"
-            tags "External"
-        }
+      
 
         firebaseMessaging = softwareSystem "Firebase Cloud Messaging" {
             description "External push notification service"
@@ -401,7 +398,6 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         cattleBandHardware -> ichu "Provides temperature, movement and position"
         waterControllerHardware -> ichu "Provides water temperature and actuator status"
 
-        ichu -> firebaseAuth "Authenticates users"
         ichu -> firebaseMessaging "Sends push notifications"
         ichu -> mapProvider "Displays positions and geofences"
         ichu -> paymentProvider "Processes subscription payments"
@@ -422,8 +418,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
 
         webApplication -> spa "Delivers"
 
-        spa -> firebaseAuth "Authenticates the user" "HTTPS"
-        mobileApplication -> firebaseAuth "Authenticates the user" "HTTPS"
+    
 
         spa -> mapProvider "Displays positions and geofences" "HTTPS"
         mobileApplication -> mapProvider "Displays positions and geofences" "HTTPS"
@@ -453,7 +448,6 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         waterControllerEmbeddedApp -> backend "Reports temperature and actuator events" "HTTPS / JSON"
 
         backend -> cloudDatabase "Reads and writes cloud data" "Entity Framework Core / Npgsql"
-        backend -> firebaseAuth "Validates user identity" "Firebase Admin SDK"
         backend -> firebaseMessaging "Requests push notifications" "Firebase Admin SDK"
         backend -> paymentProvider "Requests subscription payment" "HTTPS"
 
@@ -592,7 +586,6 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             deploymentNode "External Service Providers" {
                 deploymentNode "Firebase Services" {
                     technology "Google Firebase"
-                    softwareSystemInstance firebaseAuth
                     softwareSystemInstance firebaseMessaging
                 }
 
@@ -629,7 +622,6 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             include cattleBandHardware
             include waterControllerHardware
             include ledHardwareDisplay
-            include firebaseAuth
             include firebaseMessaging
             include mapProvider
             include paymentProvider
