@@ -32,6 +32,11 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             tags "External,Hardware"
         }
 
+        ledHardwareDisplay = softwareSystem "LED Hardware Display" {
+            description "External LED indicator connected to the Portable Edge Gateway for visible local alerts"
+            tags "External,Hardware"
+        }
+
         firebaseAuth = softwareSystem "Firebase Authentication" {
             description "External user authentication service"
             tags "External"
@@ -441,6 +446,8 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
         edgeGateway -> edgeDatabase "Stores local telemetry and configuration" "SQLite"
         edgeGateway -> backend "Synchronizes when connectivity returns" "HTTPS / JSON"
         edgeGateway -> mobileApplication "Delivers local alerts without Internet" "Local Wi-Fi"
+        edgeGateway -> ledHardwareDisplay "Activates visual warnings for critical local events" "GPIO"
+        edgeGateway -> fieldOperator "Notifies the operator about critical local alerts" "Visual LED signal"
 
         waterControllerEmbeddedApp -> waterControllerHardware "Measures water and controls the heater"
         waterControllerEmbeddedApp -> backend "Reports temperature and actuator events" "HTTPS / JSON"
@@ -621,6 +628,7 @@ workspace "ICHU" "C4 model of ICHU, the livestock IoT platform by SmartFarm" {
             include visitor
             include cattleBandHardware
             include waterControllerHardware
+            include ledHardwareDisplay
             include firebaseAuth
             include firebaseMessaging
             include mapProvider
