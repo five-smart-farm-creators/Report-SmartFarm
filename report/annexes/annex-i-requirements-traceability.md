@@ -20,7 +20,7 @@ Los dos segmentos objetivo agrupan a los usuarios por su relación con el negoci
 | **Aplicación móvil** | No aplica | Cliente de la API central y del nodo de borde para consultas, alertas y registros de campo, con permisos y operación sin Internet. |
 | **Servicio central de ICHU** | No aplica | Sistema que consume proveedores externos y expone servicios a los clientes autorizados. |
 
-Los actores técnicos describen al consumidor o sistema responsable de una capacidad; no constituyen nuevos segmentos de mercado. Las rutas HTTP y los contratos siguientes son requisitos propuestos, no evidencias de servicios ya implementados. El flujo obligatorio del collar es **collar inteligente → BLE → nodo de borde portátil → API central**. El adaptador BLE del nodo de borde entrega los paquetes al servicio de borde local; el collar no invoca rutas HTTP ni se conecta directamente a la nube.
+Los actores técnicos describen al consumidor o sistema responsable de una capacidad; no constituyen nuevos segmentos de mercado. Las rutas HTTP y los contratos de la sección 3.1 son requisitos propuestos, no evidencias de servicios ya implementados. El flujo obligatorio del collar es **collar inteligente → BLE → nodo de borde portátil → API central**. El adaptador BLE del nodo de borde entrega los paquetes al servicio de borde local; el collar no invoca rutas HTTP ni se conecta directamente a la nube.
 
 El operario de campo no constituye un tercer segmento objetivo. Es un rol operativo dentro del Segmento 1, cuya adopción del producto depende de la decisión de compra del administrador, por lo que no se le construye un arquetipo propio.
 
@@ -61,7 +61,7 @@ Los requisitos se organizan en doce épicas. La siguiente relación con los cont
 - Ningún criterio de aceptación hace referencia a controles, pantallas, colores ni gestos de interacción.
 - Las historias que admiten un flujo alternativo incluyen al menos un escenario de error o de excepción.
 - Las historias técnicas identifican al consumidor o sistema responsable. Los contratos HTTP especifican método, ruta, autorización y respuesta; los contratos embebidos o BLE especifican datos, confirmación y fallos sin inventar una ruta HTTP en el collar.
-- Las historias informativas y de contacto de la página de presentación forman parte del primer iteración; la contratación integrada de US-34 requiere servicios y se planifica después de TB1.
+- Las historias informativas y de contacto de la página de presentación forman parte de la primera iteración; la contratación integrada de US-34 requiere servicios y se planifica después de TB1.
 - Las historias de internacionalización (US-37) y accesibilidad (US-38) cubren los requisitos de i18n y a11y exigidos para la página de presentación y las aplicaciones web.
 
 **Cobertura por arquetipo de usuario**
